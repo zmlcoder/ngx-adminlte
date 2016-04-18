@@ -1,0 +1,22 @@
+<div class="hold-transition skin-blue sidebar-mini"
+     [ngClass]="{'sidebar-collapse': statusService.isSidebarCollapsed(), 'sidebar-open':!statusService.isSidebarCollapsed()}" style="height: 100%">
+  <div class="wrapper">
+
+    <!-- Top header -->
+    <adm-header></adm-header>
+
+    <!-- Left side column. contains the logo and sidebar -->
+    <adm-sidebar>
+      <adm-user-panel [user]="loginUser"></adm-user-panel>
+    </adm-sidebar>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper" style="min-height: 1000px">
+      To be continue...
+    </div>
+
+    <!-- /.content-wrapper -->
+    <adm-footer></adm-footer>
+
+  </div>
+</div>
