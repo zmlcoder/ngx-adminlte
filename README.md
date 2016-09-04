@@ -1,3 +1,35 @@
+### Current template
+
+```bash
+
+<!-- Root Component -->
+<adm-framework>
+
+    <!-- Top header -->
+    <adm-header>
+        <adm-header-user [user]="loginUser"></adm-header-user>
+        <adm-header-ctrlbar></adm-header-ctrlbar>
+    </adm-header>
+
+    <!-- Left side column. contains the logo and sidebar -->
+    <adm-sidebar>
+        <adm-sidebar-user [user]="loginUser"></adm-sidebar-user>
+    </adm-sidebar>
+
+    <!-- Main Content -->
+    <adm-content></adm-content>
+
+    <!-- Footer -->
+    <adm-footer></adm-footer>
+
+    <!-- Right side bar -->
+    <adm-ctrlbar></adm-ctrlbar>
+
+</adm-framework>
+
+```
+
+
 <p align="center">
   <a href="https://angularclass.com" target="_blank">
     <img src="https://cloud.githubusercontent.com/assets/1016365/9863762/a84fed4a-5af7-11e5-9dde-d5da01e797e7.png" alt="Webpack and Angular 2" width="500" height="320"/>
