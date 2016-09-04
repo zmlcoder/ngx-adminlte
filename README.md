@@ -6,15 +6,14 @@
 
 ### Quick start
 **Make sure you have Node version >= 5.0 and NPM >= 3**
-> Clone/Download the repo then edit `app.ts` inside [`/src/app/app.ts`](/src/app/app.ts)
 
 ```bash
 # clone our repo
 # --depth 1 removes all but one .git commit history
-git clone --depth 1 https://github.com/angularclass/angular2-webpack-starter.git
+git clone --depth 1 https://github.com/zmlcoder/angular2-adminlte.git
 
 # change directory to our repo
-cd angular2-webpack-starter
+cd angular2-adminlte
 
 # install the repo with npm
 npm install
@@ -40,8 +39,6 @@ go to [http://0.0.0.0:3000](http://0.0.0.0:3000) or [http://localhost:3000](http
 * [Contributing](#contributing)
 * [TypeScript](#typescript)
 * [@Types](#types)
-* [Frequently asked questions](#frequently-asked-questions)
-* [Support, Questions, or Feedback](#support-questions-or-feedback)
 * [License](#license)
 
 
@@ -185,19 +182,6 @@ TypeScript 1.7.x includes everything you need. Make sure to upgrade, even if you
 ```
 npm install --global typescript
 ```
-
-## Use a TypeScript-aware editor
-We have good experience using these editors:
-
-* [Visual Studio Code](https://code.visualstudio.com/)
-* [Webstorm 10](https://www.jetbrains.com/webstorm/download/)
-* [Atom](https://atom.io/) with [TypeScript plugin](https://atom.io/packages/atom-typescript)
-* [Sublime Text](http://www.sublimetext.com/3) with [Typescript-Sublime-Plugin](https://github.com/Microsoft/Typescript-Sublime-plugin#installation)
-
-### Visual Studio Code + Debugger for Chrome
-> Install [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) and see docs for instructions to launch Chrome 
-
-The included `.vscode` automatically connects to the webpack development server on port `3000`.
 
 # Types
 > When you include a module that doesn't include Type Definitions inside of the module you can include external Type Definitions with @types
