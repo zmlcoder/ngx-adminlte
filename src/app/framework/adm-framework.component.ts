@@ -6,14 +6,13 @@ import {Component, ViewEncapsulation} from "@angular/core";
 import {AdmStatusService} from "../shared/services/adm-status.service";
 
 @Component({
-    selector: 'adm-framework',
-    templateUrl: './adm-framework.component.html',
-    encapsulation: ViewEncapsulation.None
+  selector: 'adm-framework',
+  templateUrl: './adm-framework.component.html',
+  encapsulation: ViewEncapsulation.None
 })
 export class AdmFrameworkComponent {
 
-    constructor(
-        private statusService:AdmStatusService
-    ) {}
+  constructor(private statusService:AdmStatusService) {
+  }
 
 }

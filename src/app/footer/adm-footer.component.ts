@@ -1,4 +1,3 @@
-
 import {Component, ViewEncapsulation} from "@angular/core";
 
 @Component({
@@ -9,4 +8,5 @@ import {Component, ViewEncapsulation} from "@angular/core";
   //   require('./adm-footer.component.less').toString()
   // ]
 })
-export class AdmFooterComponent {}
+export class AdmFooterComponent {
+}

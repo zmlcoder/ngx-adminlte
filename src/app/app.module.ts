@@ -1,13 +1,15 @@
 import {NgModule}      from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
 import {APP_BASE_HREF} from '@angular/common';
+import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
+import {Ng2BootstrapModule} from 'ng2-bootstrap/ng2-bootstrap';
 
 /*
  * Platform and Environment providers/directives/pipes
  */
 import {ENV_PROVIDERS} from './environment';
 import {APP_RESOLVER_PROVIDERS} from './app.resolver';
+
 // App is our top level component
 import {AppComponent}  from './app.component.ts';
 import {AdmFrameworkComponent} from "./framework/adm-framework.component.ts";
@@ -26,58 +28,59 @@ import {AdmHeaderUserComponent} from "./header/adm-header-user.component";
 
 // Application wide providers
 const APP_PROVIDERS = [
-    ...APP_RESOLVER_PROVIDERS,
-    AdmStatusService,
-    {
-        provide: APP_BASE_HREF,
-        useValue: '<%= APP_BASE %>'
-    }
+  ...APP_RESOLVER_PROVIDERS,
+  AdmStatusService,
+  {
+    provide: APP_BASE_HREF,
+    useValue: '<%= APP_BASE %>'
+  }
 ];
 
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
  */
 @NgModule({
-    bootstrap: [AppComponent],
-    declarations: [ // components and directives
-        AppComponent,
-        AdmContentComponent,
-        AdmFrameworkComponent,
+  bootstrap: [AppComponent],
+  declarations: [ // components and directives
+    AppComponent,
+    AdmContentComponent,
+    AdmFrameworkComponent,
 
-        AdmSidebarComponent,
-        AdmSideBarUserComponent,
+    AdmSidebarComponent,
+    AdmSideBarUserComponent,
 
-        AdmHeaderComponent,
-        AdmHeaderCtrlBarComponent,
-        AdmHeaderUserComponent,
+    AdmHeaderComponent,
+    AdmHeaderCtrlBarComponent,
+    AdmHeaderUserComponent,
 
-        AdmFooterComponent,
-        AdmCtrlBarComponent,
-        AdmTreeViewComponent,
+    AdmFooterComponent,
+    AdmCtrlBarComponent,
+    AdmTreeViewComponent,
 
-        AdmSidebarSwitchDirective,
-        RemoveHostDirective
-    ],
-    imports: [ // import Angular's modules
-        BrowserModule,
-        RouterModule
-    ],
-    exports: [ // exported components and directives
-        AppComponent,
-        AdmContentComponent,
-        AdmFrameworkComponent,
-        AdmSidebarComponent,
-        AdmHeaderComponent,
-        AdmFooterComponent,
-        AdmCtrlBarComponent,
-        AdmSideBarUserComponent,
-        AdmTreeViewComponent,
-        AdmSidebarSwitchDirective,
-    ],
-    providers: [ // expose our Services and Providers into Angular's dependency injection
-        ENV_PROVIDERS,
-        APP_PROVIDERS
-    ]
+    AdmSidebarSwitchDirective,
+    RemoveHostDirective
+  ],
+  imports: [ // import Angular's modules
+    BrowserModule,
+    RouterModule,
+    Ng2BootstrapModule
+  ],
+  exports: [ // exported components and directives
+    AppComponent,
+    AdmContentComponent,
+    AdmFrameworkComponent,
+    AdmSidebarComponent,
+    AdmHeaderComponent,
+    AdmFooterComponent,
+    AdmCtrlBarComponent,
+    AdmSideBarUserComponent,
+    AdmTreeViewComponent,
+    AdmSidebarSwitchDirective,
+  ],
+  providers: [ // expose our Services and Providers into Angular's dependency injection
+    ENV_PROVIDERS,
+    APP_PROVIDERS
+  ]
 })
 export class AppModule {
 }

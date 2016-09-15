@@ -1,20 +1,19 @@
-
 import {Directive} from "@angular/core";
 import {AdmStatusService} from "../services/adm-status.service.ts";
 
 @Directive({
   selector: '[adm-sidebar-switch]',
-  host:{
+  host: {
     '(click)': 'onClick()'
   }
 
 })
 export class AdmSidebarSwitchDirective {
 
-  constructor(private statusService: AdmStatusService) {
+  constructor(private statusService:AdmStatusService) {
   }
 
-  onClick(){
+  onClick() {
     this.statusService.toggleSidebar();
   }
 }

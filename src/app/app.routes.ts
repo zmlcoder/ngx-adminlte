@@ -1,7 +1,6 @@
-import { Routes, RouterModule } from '@angular/router';
+import {Routes, RouterModule} from '@angular/router';
 
-import { DataResolver } from './app.resolver';
+import {DataResolver} from './app.resolver';
 
 
-export const ROUTES: Routes = [
-];
+export const ROUTES:Routes = [];

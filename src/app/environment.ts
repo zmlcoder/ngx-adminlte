@@ -1,8 +1,7 @@
-
 // Angular 2
 // rc2 workaround
-import { enableDebugTools, disableDebugTools } from '@angular/platform-browser';
-import { enableProdMode, ApplicationRef } from '@angular/core';
+import {enableDebugTools, disableDebugTools} from '@angular/platform-browser';
+import {enableProdMode, ApplicationRef} from '@angular/core';
 // Environment Providers
 let PROVIDERS = [
   // common env directives
@@ -10,7 +9,9 @@ let PROVIDERS = [
 
 // Angular debug tools in the dev console
 // https://github.com/angular/angular/blob/86405345b781a9dc2438c0fbe3e9409245647019/TOOLS_JS.md
-let _decorateModuleRef = function identity(value) { return value; };
+let _decorateModuleRef = function identity(value) {
+  return value;
+};
 
 if ('production' === ENV) {
   // Production
@@ -24,7 +25,7 @@ if ('production' === ENV) {
 
 } else {
 
-  _decorateModuleRef = (modRef: any) => {
+  _decorateModuleRef = (modRef:any) => {
     const appRef = modRef.injector.get(ApplicationRef);
     const cmpRef = appRef.components[0];
 

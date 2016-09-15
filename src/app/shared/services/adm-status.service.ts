@@ -22,6 +22,7 @@ export class AdmStatusService {
   public toggleSidebar():void {
     this.sideBarStatus.isCollapsed = !this.sideBarStatus.isCollapsed;
   }
+
   public isCtrlBarOpen():boolean {
     return this.ctrlBarStatus.isOpen;
   }

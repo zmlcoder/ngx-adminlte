@@ -5,9 +5,9 @@
 import {Component, ViewEncapsulation} from "@angular/core";
 
 @Component({
-    selector: 'adm-content',
-    templateUrl: './adm-content.component.html',
-    encapsulation: ViewEncapsulation.None
+  selector: 'adm-content',
+  templateUrl: './adm-content.component.html',
+  encapsulation: ViewEncapsulation.None
 })
 export class AdmContentComponent {
 }
