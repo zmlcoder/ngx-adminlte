@@ -2,11 +2,11 @@ import {Component, ViewEncapsulation, ContentChildren} from "@angular/core";
 
 @Component({
   selector: 'adm-header',
-  providers: [],
-  viewProviders: [],
+  // providers: [],
+  // viewProviders: [],
   templateUrl: './adm-header.component.html',
   encapsulation: ViewEncapsulation.None,
-  pipes: []
+  // pipes: []
 })
 export class AdmHeaderComponent {
   constructor() {

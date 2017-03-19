@@ -11,29 +11,31 @@ import {ENV_PROVIDERS} from './environment';
 import {APP_RESOLVER_PROVIDERS} from './app.resolver';
 
 // App is our top level component
-import {AppComponent}  from './app.component.ts';
-import {AdmFrameworkComponent} from "./framework/adm-framework.component.ts";
-import {AdmContentComponent} from "./content/adm-content.component.ts";
-import {AdmSidebarComponent} from "./sidebar/adm-sidebar.component.ts";
-import {AdmHeaderComponent} from "./header/adm-header.component.ts";
-import {AdmFooterComponent} from "./footer/adm-footer.component.ts";
-import {AdmCtrlBarComponent} from "./ctrlbar/adm-ctrlbar.component.ts";
-import {AdmSideBarUserComponent} from "./sidebar/adm-sidebar-user.component.ts";
-import {AdmTreeViewComponent} from "./sidebar/adm-tree-view.component.ts";
-import {AdmSidebarSwitchDirective} from "./shared/directives/adm-sidebar-switch.directive.ts";
-import {AdmStatusService} from "./shared/services/adm-status.service.ts";
+import {AppComponent}  from './app.component';
+import {AdmFrameworkComponent} from "./framework/adm-framework.component";
+import {AdmContentComponent} from "./content/adm-content.component";
+import {AdmSidebarComponent} from "./sidebar/adm-sidebar.component";
+import {AdmHeaderComponent} from "./header/adm-header.component";
+import {AdmFooterComponent} from "./footer/adm-footer.component";
+import {AdmCtrlBarComponent} from "./ctrlbar/adm-ctrlbar.component";
+import {AdmSideBarUserComponent} from "./sidebar/adm-sidebar-user.component";
+import {AdmTreeViewComponent} from "./sidebar/adm-tree-view.component";
+import {AdmSidebarSwitchDirective} from "./shared/directives/adm-sidebar-switch.directive";
+import {AdmStatusService} from "./shared/services/adm-status.service";
 import {AdmHeaderCtrlBarComponent} from "./header/adm-header-ctrlbar.component";
-import {RemoveHostDirective} from "./shared/directives/remove-host.directive.ts";
+import {RemoveHostDirective} from "./shared/directives/remove-host.directive";
 import {AdmHeaderUserComponent} from "./header/adm-header-user.component";
+
+import '../styles/venders.css';
 
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
   AdmStatusService,
-  {
-    provide: APP_BASE_HREF,
-    useValue: '<%= APP_BASE %>'
-  }
+  // {
+  //   provide: APP_BASE_HREF,
+  //   useValue: '<%= APP_BASE %>'
+  // }
 ];
 
 /**
@@ -58,12 +60,13 @@ const APP_PROVIDERS = [
     AdmTreeViewComponent,
 
     AdmSidebarSwitchDirective,
-    RemoveHostDirective
+    RemoveHostDirective,
+
   ],
   imports: [ // import Angular's modules
     BrowserModule,
     RouterModule,
-    Ng2BootstrapModule
+    Ng2BootstrapModule.forRoot()
   ],
   exports: [ // exported components and directives
     AppComponent,

@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {AdmStatusService} from './shared/services/adm-status.service.ts';
+import {AdmStatusService} from './shared/services/adm-status.service';
 import {User} from "./shared/models/User";
 
 @Component({

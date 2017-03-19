@@ -1,13 +1,31 @@
+sudo: required
+dist: trusty
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
 language: node_js
 node_js:
   - "4"
   - "5"
+  - "6"
   - "node"
+matrix:
+  fast_finish: true
+  allow_failures:
+  - node_js: "4"
 before_install:
-  - export CHROME_BIN=chromium-browser
+  - npm i npm@^4 -g
+install:
+  - npm install
+before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
   - sleep 3
-  # Updating NPM to relevant version >= 3 on Node.JS LTS
-  - "npm i -g npm@^3"
-sudo: false
+script:
+  - npm run ci:travis
+cache:
+  directories:
+    - node_modules
