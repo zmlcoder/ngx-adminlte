@@ -2,13 +2,7 @@ import {NgModule}      from '@angular/core';
 import {APP_BASE_HREF} from '@angular/common';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
-import {Ng2BootstrapModule} from 'ng2-bootstrap/ng2-bootstrap';
-
-/*
- * Platform and Environment providers/directives/pipes
- */
-import {ENV_PROVIDERS} from './environment';
-import {APP_RESOLVER_PROVIDERS} from './app.resolver';
+import {Ng2BootstrapModule} from 'ng2-bootstrap';
 
 // App is our top level component
 import {AppComponent}  from './app.component';
@@ -26,23 +20,16 @@ import {AdmHeaderCtrlBarComponent} from "./header/adm-header-ctrlbar.component";
 import {RemoveHostDirective} from "./shared/directives/remove-host.directive";
 import {AdmHeaderUserComponent} from "./header/adm-header-user.component";
 
-import '../styles/venders.css';
-
 // Application wide providers
 const APP_PROVIDERS = [
-  ...APP_RESOLVER_PROVIDERS,
-  AdmStatusService,
-  // {
-  //   provide: APP_BASE_HREF,
-  //   useValue: '<%= APP_BASE %>'
-  // }
+  AdmStatusService
 ];
 
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
  */
 @NgModule({
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent], // bootstrap component.
   declarations: [ // components and directives
     AppComponent,
     AdmContentComponent,
@@ -81,7 +68,6 @@ const APP_PROVIDERS = [
     AdmSidebarSwitchDirective,
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
-    ENV_PROVIDERS,
     APP_PROVIDERS
   ]
 })

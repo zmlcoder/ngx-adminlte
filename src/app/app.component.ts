@@ -6,9 +6,9 @@ import {User} from "./shared/models/User";
   selector: 'app',
   encapsulation: ViewEncapsulation.None,
   templateUrl: './app.component.html',
-  // styles:[
-  //   require('./app.style.less').toString()
-  // ]
+  styles:[
+    './app.component.css'
+  ]
 })
 export class AppComponent implements OnInit {
 
@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
 
     this.loginUser = new User();
     this.loginUser.name = 'zmlcoder';
-    this.loginUser.imgUrl = require('../assets/img/angular-logo.png');
+    this.loginUser.imgUrl = '../assets/img/angular-logo.png';
     this.loginUser.status = 'Online';
 
     return {};
