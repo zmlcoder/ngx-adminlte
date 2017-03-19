@@ -29,6 +29,7 @@
 
 ```
 
+![](https://github.com/zmlcoder/angular2-adminlte/blob/master/screenshots/demo.gif)
 
 <p align="center">
   <a href="https://angularclass.com" target="_blank">
