@@ -1,0 +1,32 @@
+<ul class="sidebar-menu">
+  <ng-container *ngFor="let item of items">
+
+    <li *ngIf="item.type === 'header'" class="header">{{item.text}}</li>
+
+    <li *ngIf="item.type === 'item'">
+      <ng-container [ngTemplateOutlet]="itemTemplate" [ngOutletContext]="{item:item}"></ng-container>
+    </li>
+
+    <li *ngIf="item.type === 'group'" class="active treeview">
+      <ng-container [ngTemplateOutlet]="itemTemplate" [ngOutletContext]="{item:item}"></ng-container>
+      <ul class="treeview-menu">
+        <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
+        <li>
+          <ng-container [ngTemplateOutlet]="itemTemplate" [ngOutletContext]="{item:item}"></ng-container>
+        </li>
+      </ul>
+    </li>
+
+  </ng-container>
+</ul>
+
+<template #itemTemplate let-item="item">
+  <!--<li>-->
+  <a href="#">
+    <i [ngClass]="item.leftIcon"></i>
+    <span>{{item.text}}</span>
+    <small *ngIf="item.labelText" [ngClass]="item.labelClass">{{item.labelText}}</small>
+    <i [ngClass]="item.rightIcon"></i>
+  </a>
+  <!--</li>-->
+</template>
