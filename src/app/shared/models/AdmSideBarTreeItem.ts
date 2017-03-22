@@ -3,6 +3,13 @@
  */
 
 export class AdmSideBarTreeItem {
+  get children():AdmSideBarTreeItem[] {
+    return this._children;
+  }
+
+  set children(value:AdmSideBarTreeItem[]) {
+    this._children = value;
+  }
 
   get labelText():string {
     return this._labelText;
@@ -60,6 +67,14 @@ export class AdmSideBarTreeItem {
     this._type = value;
   }
 
+  get isActive():boolean {
+    return this._isActive;
+  }
+
+  set isActive(value:boolean) {
+    this._isActive = value;
+  }
+
   private _leftIcon:string;
   private _rightIcon:string;
 
@@ -70,5 +85,8 @@ export class AdmSideBarTreeItem {
 
   private _status:string;
   private _type:string;
+  private _isActive:boolean;
+
+  private _children:AdmSideBarTreeItem[];
 
 }
