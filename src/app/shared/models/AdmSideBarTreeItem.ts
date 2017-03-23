@@ -3,6 +3,15 @@
  */
 
 export class AdmSideBarTreeItem {
+
+  get leftActiveIcon():string {
+    return this._leftActiveIcon;
+  }
+
+  set leftActiveIcon(value:string) {
+    this._leftActiveIcon = value;
+  }
+
   get children():AdmSideBarTreeItem[] {
     return this._children;
   }
@@ -75,8 +84,18 @@ export class AdmSideBarTreeItem {
     this._isActive = value;
   }
 
+  get rightActiveIcon():string {
+    return this._rightActiveIcon;
+  }
+
+  set rightActiveIcon(value:string) {
+    this._rightActiveIcon = value;
+  }
+
   private _leftIcon:string;
+  private _leftActiveIcon:string;
   private _rightIcon:string;
+  private _rightActiveIcon:string;
 
   private _text:string;
 

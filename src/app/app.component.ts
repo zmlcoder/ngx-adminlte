@@ -49,6 +49,7 @@ export class AppComponent implements OnInit {
     dashboardGroup.type = 'treeview';
     dashboardGroup.isActive = true;
     dashboardGroup.leftIcon = 'fa fa-dashboard';
+    dashboardGroup.rightActiveIcon = 'fa fa-angle-down pull-right';
     dashboardGroup.text = 'Dashboard';
     dashboardGroup.rightIcon = 'fa fa-angle-left pull-right';
 
@@ -62,7 +63,6 @@ export class AppComponent implements OnInit {
 
     let multilevel = new AdmSideBarTreeItem();
     multilevel.type = 'treeview';
-    multilevel.isActive = true;
     multilevel.leftIcon = 'fa fa-share';
     multilevel.text = 'Multilevel';
     multilevel.rightIcon = 'fa fa-angle-left pull-right';
@@ -92,11 +92,14 @@ export class AppComponent implements OnInit {
     levelThree2.text = 'levelThree';
 
     multilevel.children = [levelOne1, levelOne2, levelOne3];
+    multilevel.rightIcon = 'fa fa-angle-left pull-right';
+    multilevel.rightActiveIcon = 'fa fa-angle-down pull-right';
     levelOne2.children = [levelTwo1, levelTwo2];
-    levelOne2.isActive = true;
     levelOne2.rightIcon = 'fa fa-angle-left pull-right';
+    levelOne2.rightActiveIcon = 'fa fa-angle-double-down pull-right';
     levelTwo2.children = [levelThree1, levelThree2];
-    levelTwo2.isActive = true;
+    levelTwo2.rightIcon = 'fa fa-angle-left pull-right';
+    levelTwo2.rightActiveIcon = 'fa fa-angle-down pull-right';
 
 
     this.treeViewItems = [headerItem, dashboardGroup, layoutsItem, widgetsItem, multilevel];

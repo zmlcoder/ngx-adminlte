@@ -16,6 +16,11 @@ export class AdmSideBarTreeViewComponent {
   @Input('items')
   items:AdmSideBarTreeItem[];
 
+  /**
+   * Click action handler.
+   * @param event The click event.
+   * @param clickedItem The clicked item.
+   */
   private onClick(event, clickedItem:AdmSideBarTreeItem):void {
 
     // here is the event terminal, stop propagating.
@@ -31,12 +36,10 @@ export class AdmSideBarTreeViewComponent {
     clickedItem.isActive = !currentStatus;
 
     // 4. active all parent of clicked item if it is not top item.
-    let allParents:AdmSideBarTreeItem[] = [];
     if (clickedItem.type !== 'treeview') {
-      allParents = this.getAllParents(clickedItem);
-    }
-    for (let item of allParents) {
-      item.isActive = true;
+      for (let item of this.getAllParents(clickedItem)) {
+        item.isActive = true;
+      }
     }
   }
 
@@ -50,33 +53,70 @@ export class AdmSideBarTreeViewComponent {
     }
   }
 
+  /**
+   *  Return all parents of target item from whole defined items.
+   * @param targetItem The target item.
+   * @returns {Array} All parent items.
+   */
   private getAllParents(targetItem:AdmSideBarTreeItem):AdmSideBarTreeItem[] {
     let parents = [];
     for (let possibleItem of this.items) {
-      if (this.isParentItem(targetItem, possibleItem, parents)) {
+      parents = this.getParents(targetItem, possibleItem);
+      if (parents.length > 0) {
         break;
       }
-      parents = [];
     }
     return parents;
   }
 
-  private isParentItem(targetItem:AdmSideBarTreeItem, possibleItem:AdmSideBarTreeItem, parents:AdmSideBarTreeItem[]):boolean {
+  /**
+   *  Recursively collect all parents of target item from the possible item.
+   *
+   * @param targetItem The target item.
+   * @param possibleItem The possible parent item.
+   * @returns {Array} All parents of target item.
+   */
+  private getParents(targetItem:AdmSideBarTreeItem, possibleItem:AdmSideBarTreeItem):AdmSideBarTreeItem[] {
 
     if (!possibleItem.children) {
-      return false;
+      return [];
     }
+
+    let parents = [];
 
     // Recursively collect parents!
     for (let child of possibleItem.children) {
-      // Child or child's children of possible item is the parent of target item
-      if (child === targetItem || this.isParentItem(targetItem, child, parents)) {
+
+      // Check direct child of possible item.
+      if (child === targetItem) {
         parents.push(possibleItem);
-        return true;
+        break;
+      }
+
+      // Recursively check all child's children of possible item.
+      let parentsFromChild = this.getParents(targetItem, child);
+      if (parentsFromChild.length > 0) { // Means find target item from child's children.
+        parents.push(possibleItem);
+        parents = parents.concat(parentsFromChild);
+        break;
       }
     }
 
-    return false;
+    return parents;
+  }
+
+  private getLeftIcon(item:AdmSideBarTreeItem) {
+    if (item.isActive && item.leftActiveIcon) {
+      return item.leftActiveIcon;
+    }
+    return item.leftIcon;
+  }
+
+  private getRightIcon(item:AdmSideBarTreeItem) {
+    if (item.isActive && item.rightActiveIcon) {
+      return item.rightActiveIcon;
+    }
+    return item.rightIcon;
   }
 
 }

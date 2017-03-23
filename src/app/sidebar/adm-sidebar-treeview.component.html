@@ -16,10 +16,10 @@
   <li [ngClass]="{active:item.isActive}" class="{{itemClass}}" (click)="onClick($event,item)">
 
     <a>
-      <i [ngClass]="item.leftIcon"></i>
+      <i [ngClass]="getLeftIcon(item)"></i>
       <span>{{item.text}}</span>
       <small *ngIf="item.labelText" [ngClass]="item.labelClass">{{item.labelText}}</small>
-      <i [ngClass]="item.rightIcon"></i>
+      <i [ngClass]="getRightIcon(item)"></i>
     </a>
 
     <ul *ngIf="item.children" class="treeview-menu">
