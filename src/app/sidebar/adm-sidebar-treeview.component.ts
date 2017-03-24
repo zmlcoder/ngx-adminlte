@@ -5,8 +5,6 @@
 import {Component, Input} from "@angular/core";
 import {AdmSideBarTreeItem} from "../shared/models/AdmSideBarTreeItem";
 
-import * as _ from 'lodash';
-
 @Component({
   selector: 'adm-sidebar-treeview',
   templateUrl: './adm-sidebar-treeview.component.html',
