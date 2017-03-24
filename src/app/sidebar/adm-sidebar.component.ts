@@ -11,5 +11,5 @@ import {Component, ViewEncapsulation} from "@angular/core";
   encapsulation: ViewEncapsulation.None,
   // pipes: []
 })
-export class AdmSidebarComponent {
+export class AdmSideBarComponent {
 }

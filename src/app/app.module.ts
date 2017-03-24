@@ -1,55 +1,45 @@
 import {NgModule}      from '@angular/core';
-import {APP_BASE_HREF} from '@angular/common';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
-import {Ng2BootstrapModule} from 'ng2-bootstrap/ng2-bootstrap';
-
-/*
- * Platform and Environment providers/directives/pipes
- */
-import {ENV_PROVIDERS} from './environment';
-import {APP_RESOLVER_PROVIDERS} from './app.resolver';
+import {Ng2BootstrapModule} from 'ng2-bootstrap';
 
 // App is our top level component
 import {AppComponent}  from './app.component';
 import {AdmFrameworkComponent} from "./framework/adm-framework.component";
 import {AdmContentComponent} from "./content/adm-content.component";
-import {AdmSidebarComponent} from "./sidebar/adm-sidebar.component";
+import { AdmSideBarComponent} from "./sidebar/adm-sidebar.component";
 import {AdmHeaderComponent} from "./header/adm-header.component";
 import {AdmFooterComponent} from "./footer/adm-footer.component";
 import {AdmCtrlBarComponent} from "./ctrlbar/adm-ctrlbar.component";
 import {AdmSideBarUserComponent} from "./sidebar/adm-sidebar-user.component";
-import {AdmTreeViewComponent} from "./sidebar/adm-tree-view.component";
 import {AdmSidebarSwitchDirective} from "./shared/directives/adm-sidebar-switch.directive";
 import {AdmStatusService} from "./shared/services/adm-status.service";
 import {AdmHeaderCtrlBarComponent} from "./header/adm-header-ctrlbar.component";
 import {RemoveHostDirective} from "./shared/directives/remove-host.directive";
 import {AdmHeaderUserComponent} from "./header/adm-header-user.component";
-
-import '../styles/venders.css';
+import {AdmSideBarSearchComponent} from "./sidebar/adm-sidebar-search.component";
+import {AdmSideBarTreeViewComponent} from "./sidebar/adm-sidebar-treeview.component";
 
 // Application wide providers
 const APP_PROVIDERS = [
-  ...APP_RESOLVER_PROVIDERS,
-  AdmStatusService,
-  // {
-  //   provide: APP_BASE_HREF,
-  //   useValue: '<%= APP_BASE %>'
-  // }
+  AdmStatusService
 ];
 
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
  */
 @NgModule({
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent], // bootstrap component.
   declarations: [ // components and directives
     AppComponent,
     AdmContentComponent,
     AdmFrameworkComponent,
 
-    AdmSidebarComponent,
+    AdmSideBarComponent,
     AdmSideBarUserComponent,
+    AdmSideBarSearchComponent,
+    AdmSideBarTreeViewComponent,
+    
 
     AdmHeaderComponent,
     AdmHeaderCtrlBarComponent,
@@ -57,7 +47,6 @@ const APP_PROVIDERS = [
 
     AdmFooterComponent,
     AdmCtrlBarComponent,
-    AdmTreeViewComponent,
 
     AdmSidebarSwitchDirective,
     RemoveHostDirective,
@@ -72,16 +61,13 @@ const APP_PROVIDERS = [
     AppComponent,
     AdmContentComponent,
     AdmFrameworkComponent,
-    AdmSidebarComponent,
     AdmHeaderComponent,
     AdmFooterComponent,
     AdmCtrlBarComponent,
     AdmSideBarUserComponent,
-    AdmTreeViewComponent,
     AdmSidebarSwitchDirective,
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
-    ENV_PROVIDERS,
     APP_PROVIDERS
   ]
 })
