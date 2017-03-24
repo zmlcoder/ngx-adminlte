@@ -41,8 +41,17 @@ export class AdmSideBarTreeViewComponent {
         item.isActive = true;
       }
     }
+
+    // 5. invoke callback function.
+    if (clickedItem.clickFn) {
+      clickedItem.clickFn(clickedItem);
+    }
   }
 
+  /**
+   *  Deactive all specified items include their children.
+   * @param allItems the items to be deactived.
+   */
   private deactiveAll(allItems:AdmSideBarTreeItem[]):void {
     if (!allItems) {
       return;
@@ -105,6 +114,13 @@ export class AdmSideBarTreeViewComponent {
     return parents;
   }
 
+  /**
+   *  Return left icon.
+   *  If item.isActive and item.leftActiveIcon is available return item.leftActiveIcon,
+   *  otherwise default return item.leftIcon.
+   * @param item The target item.
+   * @returns {string} The left icon.
+   */
   private getLeftIcon(item:AdmSideBarTreeItem) {
     if (item.isActive && item.leftActiveIcon) {
       return item.leftActiveIcon;
@@ -112,6 +128,13 @@ export class AdmSideBarTreeViewComponent {
     return item.leftIcon;
   }
 
+  /**
+   *  Return right icon.
+   *  If item.isActive and item.rightActiveIcon is available return item.rightActiveIcon,
+   *  otherwise default return item.rightIcon.
+   * @param item The target item.
+   * @returns {string} The right icon.
+   */
   private getRightIcon(item:AdmSideBarTreeItem) {
     if (item.isActive && item.rightActiveIcon) {
       return item.rightActiveIcon;

@@ -19,13 +19,22 @@ export class AppComponent implements OnInit {
   constructor(private statusService:AdmStatusService) {
   }
 
-  ngOnInit():any {
+  ngOnInit():void {
 
     this.loginUser = new User();
     this.loginUser.name = 'zmlcoder';
     this.loginUser.imgUrl = '../assets/img/angular-logo.png';
     this.loginUser.status = 'Online';
 
+    this.treeViewItems = this.createSideBarItems();
+
+  }
+
+  /**
+   *  Create side bar model.
+   * @returns {AdmSideBarTreeItem[]} items.
+   */
+  private createSideBarItems():AdmSideBarTreeItem[] {
 
     let headerItem = new AdmSideBarTreeItem();
     headerItem.type = 'header';
@@ -44,6 +53,7 @@ export class AppComponent implements OnInit {
     widgetsItem.text = 'Widgets';
     widgetsItem.labelText = 'new';
     widgetsItem.labelClass = 'label pull-right bg-green';
+    widgetsItem.clickFn = (item) => console.info(item.text);
 
     let dashboardGroup = new AdmSideBarTreeItem();
     dashboardGroup.type = 'treeview';
@@ -99,12 +109,9 @@ export class AppComponent implements OnInit {
     levelOne2.rightActiveIcon = 'fa fa-angle-double-down pull-right';
     levelTwo2.children = [levelThree1, levelThree2];
     levelTwo2.rightIcon = 'fa fa-angle-left pull-right';
-    levelTwo2.rightActiveIcon = 'fa fa-angle-down pull-right';
+    levelTwo2.rightActiveIcon = 'fa fa-angle-double-down pull-right';
 
-
-    this.treeViewItems = [headerItem, dashboardGroup, layoutsItem, widgetsItem, multilevel];
-
-    return {};
+    return [headerItem, dashboardGroup, layoutsItem, widgetsItem, multilevel];
   }
 
 }

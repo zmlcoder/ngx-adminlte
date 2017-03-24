@@ -2,110 +2,26 @@
  * Created by zml on 2017/3/20.
  */
 
+/**
+ * The model from side bar item.
+ */
 export class AdmSideBarTreeItem {
 
-  get leftActiveIcon():string {
-    return this._leftActiveIcon;
-  }
+  leftIcon:string;
+  leftActiveIcon:string;
+  rightIcon:string;
+  rightActiveIcon:string;
 
-  set leftActiveIcon(value:string) {
-    this._leftActiveIcon = value;
-  }
+  text:string;
 
-  get children():AdmSideBarTreeItem[] {
-    return this._children;
-  }
+  labelText:string;
+  labelClass:string;
 
-  set children(value:AdmSideBarTreeItem[]) {
-    this._children = value;
-  }
+  type:string;
+  isActive:boolean;
 
-  get labelText():string {
-    return this._labelText;
-  }
+  children:AdmSideBarTreeItem[];
 
-  set labelText(value:string) {
-    this._labelText = value;
-  }
-
-  get labelClass():string {
-    return this._labelClass;
-  }
-
-  set labelClass(value:string) {
-    this._labelClass = value;
-  }
-
-  get leftIcon():string {
-    return this._leftIcon;
-  }
-
-  set leftIcon(value:string) {
-    this._leftIcon = value;
-  }
-
-  get rightIcon():string {
-    return this._rightIcon;
-  }
-
-  set rightIcon(value:string) {
-    this._rightIcon = value;
-  }
-
-  get text():string {
-    return this._text;
-  }
-
-  set text(value:string) {
-    this._text = value;
-  }
-
-  get status():string {
-    return this._status;
-  }
-
-  set status(value:string) {
-    this._status = value;
-  }
-
-  get type():string {
-    return this._type;
-  }
-
-  set type(value:string) {
-    this._type = value;
-  }
-
-  get isActive():boolean {
-    return this._isActive;
-  }
-
-  set isActive(value:boolean) {
-    this._isActive = value;
-  }
-
-  get rightActiveIcon():string {
-    return this._rightActiveIcon;
-  }
-
-  set rightActiveIcon(value:string) {
-    this._rightActiveIcon = value;
-  }
-
-  private _leftIcon:string;
-  private _leftActiveIcon:string;
-  private _rightIcon:string;
-  private _rightActiveIcon:string;
-
-  private _text:string;
-
-  private _labelText:string;
-  private _labelClass:string;
-
-  private _status:string;
-  private _type:string;
-  private _isActive:boolean;
-
-  private _children:AdmSideBarTreeItem[];
+  clickFn:(item:AdmSideBarTreeItem)=>void;
 
 }
