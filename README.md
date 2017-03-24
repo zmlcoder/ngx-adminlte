@@ -14,6 +14,8 @@
     <!-- Left side column. contains the logo and sidebar -->
     <adm-sidebar>
         <adm-sidebar-user [user]="loginUser"></adm-sidebar-user>
+        <adm-sidebar-search></adm-sidebar-search>
+        <adm-sidebar-treeview [items]="treeViewItems"></adm-sidebar-treeview>
     </adm-sidebar>
 
     <!-- Main Content -->
