@@ -59,7 +59,7 @@ export class AppComponent implements OnInit {
     dashboardGroup.type = 'treeview';
     dashboardGroup.isActive = true;
     dashboardGroup.leftIcon = 'fa fa-dashboard';
-    dashboardGroup.rightActiveIcon = 'fa fa-angle-down pull-right';
+    // dashboardGroup.rightActiveIcon = 'fa fa-angle-down pull-right';
     dashboardGroup.text = 'Dashboard';
     dashboardGroup.rightIcon = 'fa fa-angle-left pull-right';
 
@@ -103,13 +103,13 @@ export class AppComponent implements OnInit {
 
     multilevel.children = [levelOne1, levelOne2, levelOne3];
     multilevel.rightIcon = 'fa fa-angle-left pull-right';
-    multilevel.rightActiveIcon = 'fa fa-angle-down pull-right';
+    // multilevel.rightActiveIcon = 'fa fa-angle-down pull-right';
     levelOne2.children = [levelTwo1, levelTwo2];
     levelOne2.rightIcon = 'fa fa-angle-left pull-right';
-    levelOne2.rightActiveIcon = 'fa fa-angle-double-down pull-right';
+    // levelOne2.rightActiveIcon = 'fa fa-angle-down pull-right';
     levelTwo2.children = [levelThree1, levelThree2];
     levelTwo2.rightIcon = 'fa fa-angle-left pull-right';
-    levelTwo2.rightActiveIcon = 'fa fa-angle-double-down pull-right';
+    // levelTwo2.rightActiveIcon = 'fa fa-angle-down pull-right';
 
     return [headerItem, dashboardGroup, layoutsItem, widgetsItem, multilevel];
   }

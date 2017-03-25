@@ -18,8 +18,10 @@
     <a>
       <i [ngClass]="getLeftIcon(item)"></i>
       <span>{{item.text}}</span>
-      <small *ngIf="item.labelText" [ngClass]="item.labelClass">{{item.labelText}}</small>
-      <i [ngClass]="getRightIcon(item)"></i>
+      <span class="pull-right-container">
+        <small *ngIf="item.labelText" [ngClass]="item.labelClass">{{item.labelText}}</small>
+        <i [ngClass]="getRightIcon(item)"></i>
+      </span>
     </a>
 
     <ul *ngIf="item.children" class="treeview-menu">
