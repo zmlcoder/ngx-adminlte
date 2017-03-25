@@ -24,7 +24,7 @@
       </span>
     </a>
 
-    <ul *ngIf="item.children" class="treeview-menu">
+    <ul *ngIf="item.children" class="treeview-menu" [@treeItemAnimation]="item.isActive ? 'slideDown' : 'slideUp'">
 
       <!-- Recursive all children! -->
       <ng-container *ngFor="let child of item.children" [ngTemplateOutlet]="itemTemplate"
