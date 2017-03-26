@@ -19,7 +19,7 @@
       <i [ngClass]="getLeftIcon(item)"></i>
       <span>{{item.text}}</span>
       <span class="pull-right-container">
-        <small *ngIf="item.labelText" [ngClass]="item.labelClass">{{item.labelText}}</small>
+        <small *ngFor="let label of item.labels" [ngClass]="label.labelClass">{{label.labelText}}</small>
         <i [ngClass]="getRightIcon(item)"></i>
       </span>
     </a>

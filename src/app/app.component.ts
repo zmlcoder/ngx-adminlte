@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {AdmStatusService} from './shared/services/adm-status.service';
 import {User} from "./shared/models/User";
-import {AdmSideBarTreeItem} from "./shared/models/AdmSideBarTreeItem";
+import {AdmSideBarTreeItem, AdmSideBarTreeItemLabel} from "./shared/models/AdmSideBarTreeItem";
 
 @Component({
   selector: 'app',
@@ -40,26 +40,11 @@ export class AppComponent implements OnInit {
     headerItem.type = 'header';
     headerItem.text = 'MAIN NAVIGATION';
 
-    let layoutsItem = new AdmSideBarTreeItem();
-    layoutsItem.type = 'treeview';
-    layoutsItem.leftIcon = 'fa fa-files-o';
-    layoutsItem.text = 'Layout Options';
-    layoutsItem.labelText = '4';
-    layoutsItem.labelClass = 'label label-primary pull-right';
-
-    let widgetsItem = new AdmSideBarTreeItem();
-    widgetsItem.type = 'treeview';
-    widgetsItem.leftIcon = 'fa fa-th';
-    widgetsItem.text = 'Widgets';
-    widgetsItem.labelText = 'new';
-    widgetsItem.labelClass = 'label pull-right bg-green';
-    widgetsItem.clickFn = (item) => console.info(item.text);
-
+    // Dashboard
     let dashboardGroup = new AdmSideBarTreeItem();
     dashboardGroup.type = 'treeview';
     dashboardGroup.isActive = true;
     dashboardGroup.leftIcon = 'fa fa-dashboard';
-    // dashboardGroup.rightActiveIcon = 'fa fa-angle-down pull-right';
     dashboardGroup.text = 'Dashboard';
     dashboardGroup.rightIcon = 'fa fa-angle-left pull-right';
 
@@ -71,6 +56,33 @@ export class AppComponent implements OnInit {
     dashboard2.text = 'Dashboard v2';
     dashboardGroup.children = [dashboard1, dashboard2];
 
+    // Layout Options
+    let layoutsItem = new AdmSideBarTreeItem();
+    layoutsItem.type = 'treeview';
+    layoutsItem.leftIcon = 'fa fa-files-o';
+    layoutsItem.text = 'Layout Options';
+    layoutsItem.labels = [new AdmSideBarTreeItemLabel('4', 'label label-primary pull-right')];
+
+    // Widgets
+    let widgetsItem = new AdmSideBarTreeItem();
+    widgetsItem.type = 'treeview';
+    widgetsItem.leftIcon = 'fa fa-th';
+    widgetsItem.text = 'Widgets';
+    widgetsItem.labels = [new AdmSideBarTreeItemLabel('new', 'label bg-green pull-right')];
+    widgetsItem.clickFn = (item) => console.info(item.text);
+
+    // Mailbox
+    let mailBoxItem = new AdmSideBarTreeItem();
+    mailBoxItem.type = 'treeview';
+    mailBoxItem.leftIcon = 'fa fa-envelope';
+    mailBoxItem.text = 'Mailbox';
+    mailBoxItem.labels = [
+      new AdmSideBarTreeItemLabel('12', 'label bg-yellow pull-right'),
+      new AdmSideBarTreeItemLabel('16', 'label bg-green pull-right'),
+      new AdmSideBarTreeItemLabel('5', 'label bg-red pull-right'),
+    ];
+
+    // Multilevel
     let multilevel = new AdmSideBarTreeItem();
     multilevel.type = 'treeview';
     multilevel.leftIcon = 'fa fa-share';
@@ -103,15 +115,12 @@ export class AppComponent implements OnInit {
 
     multilevel.children = [levelOne1, levelOne2, levelOne3];
     multilevel.rightIcon = 'fa fa-angle-left pull-right';
-    // multilevel.rightActiveIcon = 'fa fa-angle-down pull-right';
     levelOne2.children = [levelTwo1, levelTwo2];
     levelOne2.rightIcon = 'fa fa-angle-left pull-right';
-    // levelOne2.rightActiveIcon = 'fa fa-angle-down pull-right';
     levelTwo2.children = [levelThree1, levelThree2];
     levelTwo2.rightIcon = 'fa fa-angle-left pull-right';
-    // levelTwo2.rightActiveIcon = 'fa fa-angle-down pull-right';
 
-    return [headerItem, dashboardGroup, layoutsItem, widgetsItem, multilevel];
+    return [headerItem, dashboardGroup, layoutsItem, widgetsItem, mailBoxItem, multilevel];
   }
 
 }

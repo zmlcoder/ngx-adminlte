@@ -140,11 +140,20 @@ export class AdmSideBarTreeViewComponent {
    * @param item The target item.
    * @returns {string} The right icon.
    */
-  private getRightIcon(item:AdmSideBarTreeItem) {
+  private getRightIcon(item:AdmSideBarTreeItem):string {
     if (item.isActive && item.rightActiveIcon) {
       return item.rightActiveIcon;
     }
-    return item.rightIcon;
+
+    if (item.rightIcon) {
+      return item.rightIcon;
+    }
+
+    if (item.children && item.children.length > 0) {
+      return 'fa fa-angle-left pull-right';
+    }
+
+    return "";
   }
 
 }

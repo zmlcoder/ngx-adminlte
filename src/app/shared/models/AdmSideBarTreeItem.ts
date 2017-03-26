@@ -14,8 +14,7 @@ export class AdmSideBarTreeItem {
 
   text:string;
 
-  labelText:string;
-  labelClass:string;
+  labels:AdmSideBarTreeItemLabel[];
 
   type:string;
   isActive:boolean;
@@ -23,5 +22,16 @@ export class AdmSideBarTreeItem {
   children:AdmSideBarTreeItem[];
 
   clickFn:(item:AdmSideBarTreeItem)=>void;
+
+}
+
+/**
+ * The model for labels.
+ */
+export class AdmSideBarTreeItemLabel {
+
+  constructor(public labelText?:string,
+              public labelClass?:string) {
+  }
 
 }
