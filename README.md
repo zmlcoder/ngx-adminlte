@@ -56,7 +56,7 @@ Navigate to `http://localhost:4200/`
 
 ### &lt;adm-sidebar-treeview&gt;
 
-Support the tree item multilevel and multi labels.
+Support multilevel items and multi labels.
 [Usage](https://github.com/zmlcoder/angular2-adminlte/blob/master/src/app/app.component.ts)
 
 ```javascript
