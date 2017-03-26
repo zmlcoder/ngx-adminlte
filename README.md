@@ -54,7 +54,7 @@ Navigate to `http://localhost:4200/`
 
 ## Components
 
-### &lt;adm-sidebar-treeview&gt;
+### [&lt;adm-sidebar-treeview&gt;](https://github.com/zmlcoder/angular2-adminlte/blob/master/src/app/sidebar/adm-sidebar-treeview.component.ts)
 
 Support multilevel items and multi labels.
 [Usage](https://github.com/zmlcoder/angular2-adminlte/blob/master/src/app/app.component.ts)
