@@ -52,5 +52,50 @@ ng serve
 ```
 Navigate to `http://localhost:4200/`
 
+## Components
+###<adm-sidebar-treeview>
+
+Support the tree item multilevel and multi labels.
+[Usage](https://github.com/zmlcoder/angular2-adminlte/blob/master/src/app/app.component.ts)
+
+```javascript
+/**
+ * The model for side bar item.
+ */
+export class AdmSideBarTreeItem {
+
+  // possible type value.
+  static readonly TYPE_HEADER:string = 'header';
+  static readonly TYPE_TREEVIEW:string = 'treeview';
+
+  // icons.
+  leftIcon:string;
+  leftActiveIcon:string;
+  rightIcon:string;
+  rightActiveIcon:string;
+
+  // item text.
+  text:string;
+
+  // multi labels.
+  labels:AdmSideBarTreeItemLabel[];
+
+  // TYPE_HEADER or TYPE_TREEVIEW.
+  type:string;
+
+  // Indicate if is active status.
+  isActive:boolean;
+
+  // item children to support multilevel.
+  children:AdmSideBarTreeItem[];
+
+  // clicked callback.
+  clickFn:(item:AdmSideBarTreeItem)=>void;
+
+}
+
+```
+![](https://github.com/zmlcoder/angular2-adminlte/blob/master/screenshots/sidebar.gif)
+
 ## License
  [MIT](/LICENSE)
