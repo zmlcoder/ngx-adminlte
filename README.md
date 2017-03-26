@@ -53,7 +53,8 @@ ng serve
 Navigate to `http://localhost:4200/`
 
 ## Components
-###<adm-sidebar-treeview>
+
+### &lt;adm-sidebar-treeview&gt;
 
 Support the tree item multilevel and multi labels.
 [Usage](https://github.com/zmlcoder/angular2-adminlte/blob/master/src/app/app.component.ts)
