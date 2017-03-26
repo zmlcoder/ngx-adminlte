@@ -12,7 +12,7 @@ import {AdmSideBarTreeItem} from "../shared/models/AdmSideBarTreeItem";
     trigger('treeItemAnimation', [
       state('slideUp', style({opacity: 0, height: 0})),
       state('slideDown', style({opacity: 1, height: '*'})),
-      transition('slideUp <=> slideDown', [animate('400ms ease-in')])
+      transition('slideUp <=> slideDown', [animate('300ms ease-out')])
     ])
   ]
 })
