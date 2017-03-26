@@ -25,6 +25,7 @@ export class AppComponent implements OnInit {
     this.loginUser.name = 'zmlcoder';
     this.loginUser.imgUrl = '../assets/img/angular-logo.png';
     this.loginUser.status = 'Online';
+    this.loginUser.statusIcon = 'fa fa-circle text-success';
 
     this.treeViewItems = this.createSideBarItems();
 
@@ -37,12 +38,12 @@ export class AppComponent implements OnInit {
   private createSideBarItems():AdmSideBarTreeItem[] {
 
     let headerItem = new AdmSideBarTreeItem();
-    headerItem.type = 'header';
+    headerItem.type = AdmSideBarTreeItem.TYPE_HEADER;
     headerItem.text = 'MAIN NAVIGATION';
 
     // Dashboard
     let dashboardGroup = new AdmSideBarTreeItem();
-    dashboardGroup.type = 'treeview';
+    dashboardGroup.type = AdmSideBarTreeItem.TYPE_TREEVIEW;
     dashboardGroup.isActive = true;
     dashboardGroup.leftIcon = 'fa fa-dashboard';
     dashboardGroup.text = 'Dashboard';
@@ -58,14 +59,14 @@ export class AppComponent implements OnInit {
 
     // Layout Options
     let layoutsItem = new AdmSideBarTreeItem();
-    layoutsItem.type = 'treeview';
+    layoutsItem.type = AdmSideBarTreeItem.TYPE_TREEVIEW;
     layoutsItem.leftIcon = 'fa fa-files-o';
     layoutsItem.text = 'Layout Options';
     layoutsItem.labels = [new AdmSideBarTreeItemLabel('4', 'label label-primary pull-right')];
 
     // Widgets
     let widgetsItem = new AdmSideBarTreeItem();
-    widgetsItem.type = 'treeview';
+    widgetsItem.type = AdmSideBarTreeItem.TYPE_TREEVIEW;
     widgetsItem.leftIcon = 'fa fa-th';
     widgetsItem.text = 'Widgets';
     widgetsItem.labels = [new AdmSideBarTreeItemLabel('new', 'label bg-green pull-right')];
@@ -73,7 +74,7 @@ export class AppComponent implements OnInit {
 
     // Mailbox
     let mailBoxItem = new AdmSideBarTreeItem();
-    mailBoxItem.type = 'treeview';
+    mailBoxItem.type = AdmSideBarTreeItem.TYPE_TREEVIEW;
     mailBoxItem.leftIcon = 'fa fa-envelope';
     mailBoxItem.text = 'Mailbox';
     mailBoxItem.labels = [
@@ -84,7 +85,7 @@ export class AppComponent implements OnInit {
 
     // Multilevel
     let multilevel = new AdmSideBarTreeItem();
-    multilevel.type = 'treeview';
+    multilevel.type = AdmSideBarTreeItem.TYPE_TREEVIEW;
     multilevel.leftIcon = 'fa fa-share';
     multilevel.text = 'Multilevel';
     multilevel.rightIcon = 'fa fa-angle-left pull-right';

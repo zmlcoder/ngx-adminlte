@@ -7,6 +7,9 @@
  */
 export class AdmSideBarTreeItem {
 
+  static readonly TYPE_HEADER:string = 'header';
+  static readonly TYPE_TREEVIEW:string = 'treeview';
+
   leftIcon:string;
   leftActiveIcon:string;
   rightIcon:string;
