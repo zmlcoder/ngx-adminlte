@@ -140,7 +140,7 @@ export class AppComponent implements OnInit {
 
     let toggleSidebarItem = new AdmCtrlBarCheckBoxItem();
     toggleSidebarItem.title = 'Toggle Sidebar';
-    toggleSidebarItem.isChecked = false;
+    toggleSidebarItem.isChecked = true;
     toggleSidebarItem.description = `Toggle the left sidebar's state (open or collapse)`;
     toggleSidebarItem.clickFn = item => {
       this.statusService.toggleSidebar();
