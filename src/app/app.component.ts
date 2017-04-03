@@ -2,6 +2,11 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {AdmStatusService} from './shared/services/adm-status.service';
 import {User} from "./shared/models/User";
 import {AdmSideBarTreeItem, AdmSideBarTreeItemLabel} from "./shared/models/AdmSideBarTreeItem";
+import {AdmCtrlBarProgressItem} from "./shared/models/AdmCtrlBarProgressItem";
+import {AdmCtrlBarItem} from "./shared/models/AdmCtrlBarItem";
+import {AdmCtrlBarHeaderItem} from "./shared/models/AdmCtrlBarHeaderItem";
+import {AdmCtrlBarInfoBoxItem} from "./shared/models/AdmCtrlBarInfoBoxItem";
+import {AdmCtrlBarCheckBoxItem} from "./shared/models/AdmCtrlBarCheckBoxItem";
 
 @Component({
   selector: 'app',
@@ -16,6 +21,9 @@ export class AppComponent implements OnInit {
   private loginUser:User;
   private treeViewItems:AdmSideBarTreeItem[];
 
+  private ctrlBarItems:AdmCtrlBarItem[];
+
+
   constructor(private statusService:AdmStatusService) {
   }
 
@@ -29,6 +37,7 @@ export class AppComponent implements OnInit {
 
     this.treeViewItems = this.createSideBarItems();
 
+    this.ctrlBarItems = this.createCtrlBarItems();
   }
 
   /**
@@ -122,6 +131,41 @@ export class AppComponent implements OnInit {
     levelTwo2.rightIcon = 'fa fa-angle-left pull-right';
 
     return [headerItem, dashboardGroup, layoutsItem, widgetsItem, mailBoxItem, multilevel];
+  }
+
+  private createCtrlBarItems():AdmCtrlBarItem[] {
+
+    let recentActivityHeaderItem = new AdmCtrlBarHeaderItem();
+    recentActivityHeaderItem.text = 'Recent Activity';
+
+    let toggleSidebarItem = new AdmCtrlBarCheckBoxItem();
+    toggleSidebarItem.title = 'Toggle Sidebar';
+    toggleSidebarItem.isChecked = false;
+    toggleSidebarItem.description = `Toggle the left sidebar's state (open or collapse)`;
+    toggleSidebarItem.clickFn = item => {
+      this.statusService.toggleSidebar();
+    };
+
+    let redItem = new AdmCtrlBarInfoBoxItem();
+    redItem.icon = 'fa fa-birthday-cake bg-red';
+    redItem.title = 'zmlcoder\'s Birthday';
+    redItem.description = 'Will be 23 on April 24th';
+    redItem.clickFn = item=>console.info(item.title);
+
+    let yellowItem = new AdmCtrlBarInfoBoxItem();
+    yellowItem.icon = 'fa fa-user bg-yellow';
+    yellowItem.title = 'Frodo Updated His Profile';
+    yellowItem.description = 'New phone +1(800)555-1234';
+
+    let designItem = new AdmCtrlBarProgressItem();
+    designItem.title = 'Custom Template Design';
+    designItem.progressClass = 'progress-bar progress-bar-danger';
+    designItem.labelClass = 'label label-danger pull-right';
+    designItem.value = 60;
+    designItem.clickFn = item=>console.info(item.title);
+
+    return [recentActivityHeaderItem, toggleSidebarItem, redItem, yellowItem, designItem];
+
   }
 
 }

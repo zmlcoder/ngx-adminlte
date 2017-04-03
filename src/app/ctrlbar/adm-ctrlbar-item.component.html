@@ -1,0 +1,48 @@
+<ng-container *ngIf="model.type === 'progress'">
+  <ul class="control-sidebar-menu">
+    <li (click)="model.clickFn&&model.clickFn(model)">
+      <a href="javascript:void(0)">
+        <h4 class="control-sidebar-subheading">
+          {{model.title}}
+          <span [ngClass]="model.labelClass">{{model.value}}%</span>
+        </h4>
+        <div class="progress progress-xxs">
+          <div [ngClass]="model.progressClass" [ngStyle]="{'width.%': model.value}"></div>
+        </div>
+      </a>
+    </li>
+  </ul>
+</ng-container>
+
+<ng-container *ngIf="model.type === 'infobox'">
+  <ul class="control-sidebar-menu">
+    <li (click)="model.clickFn&&model.clickFn(model)">
+      <a href="javascript:void(0)">
+        <i class="menu-icon" [ngClass]="model.icon"></i>
+        <div class="menu-info">
+          <h4 class="control-sidebar-subheading">{{model.title}}</h4>
+          <p>{{model.description}}</p>
+        </div>
+      </a>
+    </li>
+  </ul>
+</ng-container>
+
+<ng-container *ngIf="model.type === 'checkbox'">
+  <div class="form-group">
+    <label class="control-sidebar-subheading">
+      {{model.title}}
+      <input type="checkbox" class="pull-right" [(ngModel)]="model.isChecked"
+             (click)="model.clickFn&&model.clickFn(model)">
+    </label>
+    <p>
+      {{model.description}}
+    </p>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="model.type === 'header'">
+  <h3 class="control-sidebar-heading">{{model.text}}</h3>
+</ng-container>
+
+

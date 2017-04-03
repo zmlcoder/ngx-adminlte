@@ -7,10 +7,15 @@ import {Ng2BootstrapModule} from 'ng2-bootstrap';
 import {AppComponent}  from './app.component';
 import {AdmFrameworkComponent} from "./framework/adm-framework.component";
 import {AdmContentComponent} from "./content/adm-content.component";
-import { AdmSideBarComponent} from "./sidebar/adm-sidebar.component";
+import {AdmSideBarComponent} from "./sidebar/adm-sidebar.component";
 import {AdmHeaderComponent} from "./header/adm-header.component";
 import {AdmFooterComponent} from "./footer/adm-footer.component";
-import {AdmCtrlBarComponent} from "./ctrlbar/adm-ctrlbar.component";
+import {
+  AdmCtrlBarComponent,
+  AdmCtrlBarTabContent,
+  AdmCtrlBarTabTitle,
+  AdmCtrlBarTab
+} from "./ctrlbar/adm-ctrlbar.component";
 import {AdmSideBarUserComponent} from "./sidebar/adm-sidebar-user.component";
 import {AdmSidebarSwitchDirective} from "./shared/directives/adm-sidebar-switch.directive";
 import {AdmStatusService} from "./shared/services/adm-status.service";
@@ -19,6 +24,7 @@ import {RemoveHostDirective} from "./shared/directives/remove-host.directive";
 import {AdmHeaderUserComponent} from "./header/adm-header-user.component";
 import {AdmSideBarSearchComponent} from "./sidebar/adm-sidebar-search.component";
 import {AdmSideBarTreeViewComponent} from "./sidebar/adm-sidebar-treeview.component";
+import {AdmCtrlBarItemComponent} from "./ctrlbar/adm-ctrlbar-item.component";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -39,14 +45,19 @@ const APP_PROVIDERS = [
     AdmSideBarUserComponent,
     AdmSideBarSearchComponent,
     AdmSideBarTreeViewComponent,
-    
+
 
     AdmHeaderComponent,
     AdmHeaderCtrlBarComponent,
     AdmHeaderUserComponent,
 
-    AdmFooterComponent,
     AdmCtrlBarComponent,
+    AdmCtrlBarTabContent,
+    AdmCtrlBarTabTitle,
+    AdmCtrlBarTab,
+    AdmCtrlBarItemComponent,
+
+    AdmFooterComponent,
 
     AdmSidebarSwitchDirective,
     RemoveHostDirective,
