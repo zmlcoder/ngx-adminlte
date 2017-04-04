@@ -120,7 +120,7 @@ The child directive of &lt;adm-ctrlbar-tab&gt; to indicate the title template.
 The child directive of &lt;adm-ctrlbar-tab&gt; to indicate the content template.
 
 ### [&lt;adm-ctrlbar-item&gt;](https://github.com/zmlcoder/angular2-adminlte/blob/master/src/app/ctrlbar/adm-ctrlbar-item.component.ts)
-The build in control bar items. For now, there are four types item: 
+The built in control bar items. For now, there are four types item: 
 - [AdmCtrlBarHeaderItem](https://github.com/zmlcoder/angular2-adminlte/blob/master/src/app/shared/models/AdmCtrlBarHeaderItem.ts)
 - [AdmCtrlBarInfoBoxItem](https://github.com/zmlcoder/angular2-adminlte/blob/master/src/app/shared/models/AdmCtrlBarInfoBoxItem.ts)
 - [AdmCtrlBarCheckBoxItem](https://github.com/zmlcoder/angular2-adminlte/blob/master/src/app/shared/models/AdmCtrlBarCheckBoxItem.ts)
