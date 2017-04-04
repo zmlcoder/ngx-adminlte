@@ -8,7 +8,7 @@ export class AdmCtrlBarHeaderItem extends AdmCtrlBarItem {
   // type value.
   static readonly TYPE:string = 'header';
 
-  text:string;
+  title:string;
 
   constructor() {
     super(AdmCtrlBarHeaderItem.TYPE);

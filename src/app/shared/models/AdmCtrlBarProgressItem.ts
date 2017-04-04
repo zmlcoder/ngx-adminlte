@@ -10,7 +10,7 @@ export class AdmCtrlBarProgressItem extends AdmCtrlBarItem {
 
   title:string;
 
-  value:number;
+  percentage:number;
 
   progressClass:string;
 

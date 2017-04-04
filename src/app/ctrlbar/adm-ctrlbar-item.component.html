@@ -4,10 +4,10 @@
       <a href="javascript:void(0)">
         <h4 class="control-sidebar-subheading">
           {{model.title}}
-          <span [ngClass]="model.labelClass">{{model.value}}%</span>
+          <span [ngClass]="model.labelClass">{{model.percentage}}%</span>
         </h4>
         <div class="progress progress-xxs">
-          <div [ngClass]="model.progressClass" [ngStyle]="{'width.%': model.value}"></div>
+          <div [ngClass]="model.progressClass" [ngStyle]="{'width.%': model.percentage}"></div>
         </div>
       </a>
     </li>
@@ -42,7 +42,7 @@
 </ng-container>
 
 <ng-container *ngIf="model.type === 'header'">
-  <h3 class="control-sidebar-heading">{{model.text}}</h3>
+  <h3 class="control-sidebar-heading">{{model.title}}</h3>
 </ng-container>
 
 

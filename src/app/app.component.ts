@@ -136,7 +136,7 @@ export class AppComponent implements OnInit {
   private createCtrlBarItems():AdmCtrlBarItem[] {
 
     let recentActivityHeaderItem = new AdmCtrlBarHeaderItem();
-    recentActivityHeaderItem.text = 'Recent Activity';
+    recentActivityHeaderItem.title = 'Recent Activity';
 
     let toggleSidebarItem = new AdmCtrlBarCheckBoxItem();
     toggleSidebarItem.title = 'Toggle Sidebar';
@@ -161,7 +161,7 @@ export class AppComponent implements OnInit {
     designItem.title = 'Custom Template Design';
     designItem.progressClass = 'progress-bar progress-bar-danger';
     designItem.labelClass = 'label label-danger pull-right';
-    designItem.value = 60;
+    designItem.percentage = 60;
     designItem.clickFn = item=>console.info(item.title);
 
     return [recentActivityHeaderItem, toggleSidebarItem, redItem, yellowItem, designItem];
