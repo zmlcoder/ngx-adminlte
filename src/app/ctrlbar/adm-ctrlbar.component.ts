@@ -24,7 +24,7 @@ let nextId = 0;
  * This directive should be used to wrap tab titles that need to contain HTML markup or other directives.
  */
 @Directive({selector: 'template[adm-ctrlbar-tab-title]'})
-export class AdmCtrlBarTabTitle {
+export class AdmCtrlBarTabTitleDirective {
   constructor(public templateRef:TemplateRef<any>) {
   }
 }
@@ -33,7 +33,7 @@ export class AdmCtrlBarTabTitle {
  * This directive must be used to wrap content to be displayed in a tab.
  */
 @Directive({selector: 'template[adm-ctrlbar-tab-content]'})
-export class AdmCtrlBarTabContent {
+export class AdmCtrlBarTabContentDirective {
   constructor(public templateRef:TemplateRef<any>) {
   }
 }
@@ -42,7 +42,7 @@ export class AdmCtrlBarTabContent {
  * A directive representing an individual tab.
  */
 @Directive({selector: 'adm-ctrlbar-tab'})
-export class AdmCtrlBarTab {
+export class AdmCtrlBarTabDirective {
   /**
    * Unique tab identifier. Must be unique for the entire document for proper accessibility support.
    */
@@ -56,8 +56,8 @@ export class AdmCtrlBarTab {
    */
   @Input() disabled = false;
 
-  @ContentChild(AdmCtrlBarTabContent) contentTpl:AdmCtrlBarTabContent;
-  @ContentChild(AdmCtrlBarTabTitle) titleTpl:AdmCtrlBarTabTitle;
+  @ContentChild(AdmCtrlBarTabContentDirective) contentTpl:AdmCtrlBarTabContentDirective;
+  @ContentChild(AdmCtrlBarTabTitleDirective) titleTpl:AdmCtrlBarTabTitleDirective;
 }
 
 /**
@@ -88,7 +88,7 @@ export interface AdmCtrlBarTabChangeEvent {
 })
 export class AdmCtrlBarComponent implements AfterContentChecked {
 
-  @ContentChildren(AdmCtrlBarTab) tabs:QueryList<AdmCtrlBarTab>;
+  @ContentChildren(AdmCtrlBarTabDirective) tabs:QueryList<AdmCtrlBarTabDirective>;
 
   /**
    * A tab change event fired right before the tab selection happens. See AdmCtrlBarTabChangeEvent for payload details
@@ -132,8 +132,8 @@ export class AdmCtrlBarComponent implements AfterContentChecked {
     this.activeId = activeTab ? activeTab.id : (this.tabs.length ? this.tabs.first.id : null);
   }
 
-  private _getTabById(id:string):AdmCtrlBarTab {
-    let tabsWithId:AdmCtrlBarTab[] = this.tabs.filter(tab => tab.id === id);
+  private _getTabById(id:string):AdmCtrlBarTabDirective {
+    let tabsWithId:AdmCtrlBarTabDirective[] = this.tabs.filter(tab => tab.id === id);
     return tabsWithId.length ? tabsWithId[0] : null;
   }
 

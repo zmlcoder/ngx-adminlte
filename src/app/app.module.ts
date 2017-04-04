@@ -12,9 +12,9 @@ import {AdmHeaderComponent} from "./header/adm-header.component";
 import {AdmFooterComponent} from "./footer/adm-footer.component";
 import {
   AdmCtrlBarComponent,
-  AdmCtrlBarTabContent,
-  AdmCtrlBarTabTitle,
-  AdmCtrlBarTab
+  AdmCtrlBarTabContentDirective,
+  AdmCtrlBarTabTitleDirective,
+  AdmCtrlBarTabDirective
 } from "./ctrlbar/adm-ctrlbar.component";
 import {AdmSideBarUserComponent} from "./sidebar/adm-sidebar-user.component";
 import {AdmSidebarSwitchDirective} from "./shared/directives/adm-sidebar-switch.directive";
@@ -52,9 +52,9 @@ const APP_PROVIDERS = [
     AdmHeaderUserComponent,
 
     AdmCtrlBarComponent,
-    AdmCtrlBarTabContent,
-    AdmCtrlBarTabTitle,
-    AdmCtrlBarTab,
+    AdmCtrlBarTabContentDirective,
+    AdmCtrlBarTabTitleDirective,
+    AdmCtrlBarTabDirective,
     AdmCtrlBarItemComponent,
 
     AdmFooterComponent,
