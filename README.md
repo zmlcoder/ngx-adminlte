@@ -2,31 +2,38 @@
 
 ```bash
 
-<!-- Root Component -->
 <adm-framework>
-
-    <!-- Top header -->
-    <adm-header>
-        <adm-header-user [user]="loginUser"></adm-header-user>
-        <adm-header-ctrlbar></adm-header-ctrlbar>
-    </adm-header>
-
-    <!-- Left side column. contains the logo and sidebar -->
-    <adm-sidebar>
-        <adm-sidebar-user [user]="loginUser"></adm-sidebar-user>
-        <adm-sidebar-search></adm-sidebar-search>
-        <adm-sidebar-treeview [items]="treeViewItems"></adm-sidebar-treeview>
-    </adm-sidebar>
-
-    <!-- Main Content -->
-    <adm-content></adm-content>
-
-    <!-- Footer -->
-    <adm-footer></adm-footer>
-
-    <!-- Right side bar -->
-    <adm-ctrlbar></adm-ctrlbar>
-
+ 
+  <!-- Top header -->
+  <adm-header>
+    <adm-header-user [user]="loginUser"></adm-header-user>
+    <adm-header-ctrlbar></adm-header-ctrlbar>
+  </adm-header>
+ 
+  <!-- Left side column. contains the logo and sidebar -->
+  <adm-sidebar>
+    <adm-sidebar-user [user]="loginUser"></adm-sidebar-user>
+    <adm-sidebar-search></adm-sidebar-search>
+    <adm-sidebar-treeview [items]="treeViewItems"></adm-sidebar-treeview>
+  </adm-sidebar>
+ 
+ <!-- content-wrapper -->
+  <adm-content></adm-content>
+ 
+  <adm-footer></adm-footer>
+ 
+  <!--right side bar-->
+  <adm-ctrlbar [activeId]="'homeTab'">
+  
+    <adm-ctrlbar-tab *ngFor="let tab of ctrlBarTabs" [id]="tab.id">
+      <template adm-ctrlbar-tab-title><i [ngClass]="tab.icon">{{tab.title}}</i></template>
+      <template adm-ctrlbar-tab-content>
+        <adm-ctrlbar-item *ngFor="let item of tab.items" [model]="item"></adm-ctrlbar-item>
+      </template>
+    </adm-ctrlbar-tab>
+ 
+  </adm-ctrlbar>
+ 
 </adm-framework>
 
 ```
@@ -57,7 +64,7 @@ Navigate to `http://localhost:4200/`
 ### [&lt;adm-sidebar-treeview&gt;](https://github.com/zmlcoder/angular2-adminlte/blob/master/src/app/sidebar/adm-sidebar-treeview.component.ts)
 
 Support multilevel items and multi labels.
-[Usage](https://github.com/zmlcoder/angular2-adminlte/blob/master/src/app/app.component.ts)
+[Usage](https://github.com/zmlcoder/angular2-adminlte/blob/master/src/app/app.component.ts#L46)
 
 ```javascript
 /**
@@ -101,16 +108,16 @@ export class AdmSideBarTreeItem {
 ### [&lt;adm-ctrlbar&gt;](https://github.com/zmlcoder/angular2-adminlte/blob/master/src/app/ctrlbar/adm-ctrlbar.component.ts#L89)
 
 The right side control bar of framework, which is consist of multi tabs. It could easily custom the content from external template with following directives.
-[Usage](https://github.com/zmlcoder/angular2-adminlte/blob/master/src/app/app.component.ts)
+[Usage](https://github.com/zmlcoder/angular2-adminlte/blob/master/src/app/app.component.ts#L139)
 
 ### [&lt;adm-ctrlbar-tab&gt;](https://github.com/zmlcoder/angular2-adminlte/blob/master/src/app/ctrlbar/adm-ctrlbar.component.ts#L44)
-The child component of <adm-ctrlbar> to show one tab.
+The child component of &lt;adm-ctrlbar&gt; to show one tab.
 
 ### [adm-ctrlbar-tab-title](https://github.com/zmlcoder/angular2-adminlte/blob/master/src/app/ctrlbar/adm-ctrlbar.component.ts#L26)
-The child directive of <adm-ctrlbar-tab> to indicate the title template.
+The child directive of &lt;adm-ctrlbar-tab&gt; to indicate the title template.
 
 ### [adm-ctrlbar-tab-content](https://github.com/zmlcoder/angular2-adminlte/blob/master/src/app/ctrlbar/adm-ctrlbar.component.ts#L35)
-The child directive of <adm-ctrlbar-tab> to indicate the content template.
+The child directive of &lt;adm-ctrlbar-tab&gt; to indicate the content template.
 
 ### [&lt;adm-ctrlbar-item&gt;](https://github.com/zmlcoder/angular2-adminlte/blob/master/src/app/ctrlbar/adm-ctrlbar-item.component.ts)
 The build in control bar items. For now, there are four types item: 
@@ -136,7 +143,6 @@ The build in control bar items. For now, there are four types item:
 </adm-ctrlbar>
 
 ```
-
 ![](https://github.com/zmlcoder/angular2-adminlte/blob/master/screenshots/ctrlbar.gif)
 
 ## License
