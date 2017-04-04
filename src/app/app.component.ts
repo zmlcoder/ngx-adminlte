@@ -3,10 +3,10 @@ import {AdmStatusService} from './shared/services/adm-status.service';
 import {User} from "./shared/models/User";
 import {AdmSideBarTreeItem, AdmSideBarTreeItemLabel} from "./shared/models/AdmSideBarTreeItem";
 import {AdmCtrlBarProgressItem} from "./shared/models/AdmCtrlBarProgressItem";
-import {AdmCtrlBarItem} from "./shared/models/AdmCtrlBarItem";
 import {AdmCtrlBarHeaderItem} from "./shared/models/AdmCtrlBarHeaderItem";
 import {AdmCtrlBarInfoBoxItem} from "./shared/models/AdmCtrlBarInfoBoxItem";
 import {AdmCtrlBarCheckBoxItem} from "./shared/models/AdmCtrlBarCheckBoxItem";
+import {AdmCtrlBarTab} from "./shared/models/AdmCtrlBarTab";
 
 @Component({
   selector: 'app',
@@ -21,8 +21,7 @@ export class AppComponent implements OnInit {
   private loginUser:User;
   private treeViewItems:AdmSideBarTreeItem[];
 
-  private ctrlBarItems:AdmCtrlBarItem[];
-
+  private ctrlBarTabs:AdmCtrlBarTab[];
 
   constructor(private statusService:AdmStatusService) {
   }
@@ -37,7 +36,7 @@ export class AppComponent implements OnInit {
 
     this.treeViewItems = this.createSideBarItems();
 
-    this.ctrlBarItems = this.createCtrlBarItems();
+    this.ctrlBarTabs = this.createCtrlBarTabs();
   }
 
   /**
@@ -133,10 +132,28 @@ export class AppComponent implements OnInit {
     return [headerItem, dashboardGroup, layoutsItem, widgetsItem, mailBoxItem, multilevel];
   }
 
-  private createCtrlBarItems():AdmCtrlBarItem[] {
+  private createCtrlBarTabs():AdmCtrlBarTab[] {
+    return [this.createOptionsTab(), this.createHomeTab(), this.createSettingsTab()];
+  }
 
-    let recentActivityHeaderItem = new AdmCtrlBarHeaderItem();
-    recentActivityHeaderItem.title = 'Recent Activity';
+  private createOptionsTab():AdmCtrlBarTab {
+    let optionsTab = new AdmCtrlBarTab();
+    optionsTab.id = 'optionsTab';
+    optionsTab.icon = 'fa fa-wrench';
+
+    let layoutOptionsHeaderItem = new AdmCtrlBarHeaderItem();
+    layoutOptionsHeaderItem.title = 'Layout Options';
+    optionsTab.items.push(layoutOptionsHeaderItem);
+
+    let fixedLayoutItem = new AdmCtrlBarCheckBoxItem();
+    fixedLayoutItem.title = 'Fixed layout';
+    fixedLayoutItem.description = `Activate the fixed layout. You can't use fixed and boxed layouts together`;
+    optionsTab.items.push(fixedLayoutItem);
+
+    let boxedLayoutItem = new AdmCtrlBarCheckBoxItem();
+    boxedLayoutItem.title = 'Boxed Layout';
+    boxedLayoutItem.description = `Activate the boxed layout`;
+    optionsTab.items.push(boxedLayoutItem);
 
     let toggleSidebarItem = new AdmCtrlBarCheckBoxItem();
     toggleSidebarItem.title = 'Toggle Sidebar';
@@ -145,27 +162,154 @@ export class AppComponent implements OnInit {
     toggleSidebarItem.clickFn = item => {
       this.statusService.toggleSidebar();
     };
+    optionsTab.items.push(toggleSidebarItem);
 
-    let redItem = new AdmCtrlBarInfoBoxItem();
-    redItem.icon = 'fa fa-birthday-cake bg-red';
-    redItem.title = 'zmlcoder\'s Birthday';
-    redItem.description = 'Will be 23 on April 24th';
-    redItem.clickFn = item=>console.info(item.title);
+    let expandOnHoverItem = new AdmCtrlBarCheckBoxItem();
+    expandOnHoverItem.title = 'Sidebar Expand on Hover';
+    expandOnHoverItem.description = `Let the sidebar mini expand on hover`;
+    optionsTab.items.push(expandOnHoverItem);
 
-    let yellowItem = new AdmCtrlBarInfoBoxItem();
-    yellowItem.icon = 'fa fa-user bg-yellow';
-    yellowItem.title = 'Frodo Updated His Profile';
-    yellowItem.description = 'New phone +1(800)555-1234';
+    let toggleRightBarSlideItem = new AdmCtrlBarCheckBoxItem();
+    toggleRightBarSlideItem.title = 'Toggle Right Sidebar Slide';
+    toggleRightBarSlideItem.isChecked = true;
+    toggleRightBarSlideItem.description = `Toggle between slide over content and push content effects`;
+    toggleRightBarSlideItem.clickFn = item => {
+      this.statusService.toggleCtrlBar();
+    };
+    optionsTab.items.push(toggleRightBarSlideItem);
 
-    let designItem = new AdmCtrlBarProgressItem();
-    designItem.title = 'Custom Template Design';
-    designItem.progressClass = 'progress-bar progress-bar-danger';
-    designItem.labelClass = 'label label-danger pull-right';
-    designItem.percentage = 60;
-    designItem.clickFn = item=>console.info(item.title);
+    let toggleRightBarSkinItem = new AdmCtrlBarCheckBoxItem();
+    toggleRightBarSkinItem.title = 'Toggle Right Sidebar Skin';
+    toggleRightBarSkinItem.description = `Toggle between dark and light skins for the right sidebar`;
+    optionsTab.items.push(toggleRightBarSkinItem);
 
-    return [recentActivityHeaderItem, toggleSidebarItem, redItem, yellowItem, designItem];
-
+    return optionsTab;
   }
 
+  private createHomeTab():AdmCtrlBarTab {
+
+    let homeTab = new AdmCtrlBarTab();
+    homeTab.id = 'homeTab';
+    homeTab.icon = 'fa fa-home';
+
+    let recentActivityHeaderItem = new AdmCtrlBarHeaderItem();
+    recentActivityHeaderItem.title = 'Recent Activity';
+    homeTab.items.push(recentActivityHeaderItem);
+
+    let redInfoItem = new AdmCtrlBarInfoBoxItem();
+    redInfoItem.icon = 'fa fa-birthday-cake bg-red';
+    redInfoItem.title = `Langdon's Birthday`;
+    redInfoItem.description = 'Will be 23 on April 24th';
+    redInfoItem.clickFn = item=>console.info(item.title);
+    homeTab.items.push(redInfoItem);
+
+    let yellowInfoItem = new AdmCtrlBarInfoBoxItem();
+    yellowInfoItem.icon = 'fa fa-user bg-yellow';
+    yellowInfoItem.title = `Frodo Updated His Profile`;
+    yellowInfoItem.description = 'New phone +1(800)555-1234';
+    yellowInfoItem.clickFn = item=>console.info(item.title);
+    homeTab.items.push(yellowInfoItem);
+
+    let blueInfoItem = new AdmCtrlBarInfoBoxItem();
+    blueInfoItem.icon = 'fa fa-envelope-o bg-light-blue';
+    blueInfoItem.title = `Nora Joined Mailing List`;
+    blueInfoItem.description = 'nora@example.com';
+    blueInfoItem.clickFn = item=>console.info(item.title);
+    homeTab.items.push(blueInfoItem);
+
+    let greenInfoItem = new AdmCtrlBarInfoBoxItem();
+    greenInfoItem.icon = 'fa fa-file-code-o bg-green';
+    greenInfoItem.title = `Cron Job 254 Executed`;
+    greenInfoItem.description = 'Execution time 5 seconds';
+    greenInfoItem.clickFn = item=>console.info(item.title);
+    homeTab.items.push(greenInfoItem);
+
+    let tasksProgressHeaderItem = new AdmCtrlBarHeaderItem();
+    tasksProgressHeaderItem.title = 'Tasks Progress';
+    homeTab.items.push(tasksProgressHeaderItem);
+
+    let designProgressItem = new AdmCtrlBarProgressItem();
+    designProgressItem.title = 'Custom Template Design';
+    designProgressItem.progressClass = 'progress-bar progress-bar-danger';
+    designProgressItem.labelClass = 'label label-danger pull-right';
+    designProgressItem.percentage = 70;
+    designProgressItem.clickFn = item=>console.info(item.title);
+    homeTab.items.push(designProgressItem);
+
+    let updateResumeProgressItem = new AdmCtrlBarProgressItem();
+    updateResumeProgressItem.title = 'Update Resume';
+    updateResumeProgressItem.progressClass = 'progress-bar progress-bar-success';
+    updateResumeProgressItem.labelClass = 'label label-success pull-right';
+    updateResumeProgressItem.percentage = 95;
+    updateResumeProgressItem.clickFn = item=>console.info(item.title);
+    homeTab.items.push(updateResumeProgressItem);
+
+    let laravelIntegrationProgressItem = new AdmCtrlBarProgressItem();
+    laravelIntegrationProgressItem.title = 'Laravel Integration';
+    laravelIntegrationProgressItem.progressClass = 'progress-bar progress-bar-warning';
+    laravelIntegrationProgressItem.labelClass = 'label label-warning pull-right';
+    laravelIntegrationProgressItem.percentage = 50;
+    laravelIntegrationProgressItem.clickFn = item=>console.info(item.title);
+    homeTab.items.push(laravelIntegrationProgressItem);
+
+    let backEndFrameworkProgressItem = new AdmCtrlBarProgressItem();
+    backEndFrameworkProgressItem.title = 'Back End Framework';
+    backEndFrameworkProgressItem.progressClass = 'progress-bar progress-bar-primary';
+    backEndFrameworkProgressItem.labelClass = 'label label-primary pull-right';
+    backEndFrameworkProgressItem.percentage = 50;
+    backEndFrameworkProgressItem.clickFn = item=>console.info(item.title);
+    homeTab.items.push(backEndFrameworkProgressItem);
+
+    return homeTab;
+  }
+
+  private createSettingsTab():AdmCtrlBarTab {
+
+    let settingsTab = new AdmCtrlBarTab();
+    settingsTab.id = 'settingsTab';
+    settingsTab.icon = 'fa fa-gears';
+
+    let generalSettingsHeaderItem = new AdmCtrlBarHeaderItem();
+    generalSettingsHeaderItem.title = 'General Settings';
+    settingsTab.items.push(generalSettingsHeaderItem);
+
+    let reportPanelUsageItem = new AdmCtrlBarCheckBoxItem();
+    reportPanelUsageItem.title = 'Report panel usage';
+    reportPanelUsageItem.isChecked = true;
+    reportPanelUsageItem.description = `Some information about this general settings option`;
+    reportPanelUsageItem.clickFn = item => console.info(item.title);
+    settingsTab.items.push(reportPanelUsageItem);
+
+    let allowMailRedirectItem = new AdmCtrlBarCheckBoxItem();
+    allowMailRedirectItem.title = 'Allow mail redirect';
+    allowMailRedirectItem.isChecked = false;
+    allowMailRedirectItem.description = `Other sets of options are available`;
+    allowMailRedirectItem.clickFn = item => console.info(item.title);
+    settingsTab.items.push(allowMailRedirectItem);
+
+    let exposeUserNameItem = new AdmCtrlBarCheckBoxItem();
+    exposeUserNameItem.title = 'Expose author name in posts';
+    exposeUserNameItem.isChecked = true;
+    exposeUserNameItem.description = `Allow the user to show his name in blog posts`;
+    exposeUserNameItem.clickFn = item => console.info(item.title);
+    settingsTab.items.push(exposeUserNameItem);
+
+    let chatSettingsHeaderItem = new AdmCtrlBarHeaderItem();
+    chatSettingsHeaderItem.title = 'Chat Settings';
+    settingsTab.items.push(chatSettingsHeaderItem);
+
+    let showMeOnlineItem = new AdmCtrlBarCheckBoxItem();
+    showMeOnlineItem.title = 'Show me as online';
+    showMeOnlineItem.isChecked = true;
+    showMeOnlineItem.clickFn = item => console.info(item.title);
+    settingsTab.items.push(showMeOnlineItem);
+
+    let notificationItem = new AdmCtrlBarCheckBoxItem();
+    notificationItem.title = 'Turn off notifications';
+    notificationItem.isChecked = false;
+    notificationItem.clickFn = item => console.info(item.title);
+    settingsTab.items.push(notificationItem);
+
+    return settingsTab;
+  }
 }

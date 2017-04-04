@@ -17,19 +17,12 @@
   <!--&lt;!&ndash; /.content-wrapper &ndash;&gt;-->
   <adm-footer></adm-footer>
 
-  <adm-ctrlbar [activeId]="'secondTab'">
+  <adm-ctrlbar [activeId]="'homeTab'">
 
-    <adm-ctrlbar-tab>
-      <template adm-ctrlbar-tab-title><i class="fa fa-home"></i></template>
+    <adm-ctrlbar-tab *ngFor="let tab of ctrlBarTabs" [id]="tab.id">
+      <template adm-ctrlbar-tab-title><i [ngClass]="tab.icon">{{tab.title}}</i></template>
       <template adm-ctrlbar-tab-content>
-        <adm-ctrlbar-item *ngFor="let item of ctrlBarItems" [model]="item"></adm-ctrlbar-item>
-      </template>
-    </adm-ctrlbar-tab>
-
-    <adm-ctrlbar-tab [id]="'secondTab'" >
-      <template adm-ctrlbar-tab-title><i class="fa fa-gears"></i></template>
-      <template adm-ctrlbar-tab-content>
-        <adm-ctrlbar-item [model]="ctrlBarItems[1]"></adm-ctrlbar-item>
+        <adm-ctrlbar-item *ngFor="let item of tab.items" [model]="item"></adm-ctrlbar-item>
       </template>
     </adm-ctrlbar-tab>
 
