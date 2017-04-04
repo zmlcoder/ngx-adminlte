@@ -11,7 +11,9 @@ import {
   ContentChild,
   QueryList,
   ContentChildren,
-  AfterContentChecked
+  AfterContentChecked,
+  EventEmitter,
+  Output
 } from "@angular/core";
 
 import {AdmStatusService} from "../shared/services/adm-status.service";
@@ -46,7 +48,7 @@ export class AdmCtrlBarTab {
    */
   @Input() id:string = `adm-ctrlbar-tab-${nextId++}`;
   /**
-   * Simple (string only) title. Use the "NgbTabTitle" directive for more complex use-cases.
+   * Simple (string only) title. Use the "AdmCtrlBarTabTitle" directive for more complex use-cases.
    */
   @Input() title:string;
   /**
@@ -58,6 +60,27 @@ export class AdmCtrlBarTab {
   @ContentChild(AdmCtrlBarTabTitle) titleTpl:AdmCtrlBarTabTitle;
 }
 
+/**
+ * The payload of the change event fired right before the tab change
+ */
+export interface AdmCtrlBarTabChangeEvent {
+  /**
+   * Id of the currently active tab
+   */
+  activeId:string;
+
+  /**
+   * Id of the newly selected tab
+   */
+  nextId:string;
+
+  /**
+   * Function that will prevent tab switch if called
+   */
+  preventDefault:() => void;
+}
+
+
 @Component({
   selector: 'adm-ctrlbar',
   templateUrl: './adm-ctrlbar.component.html',
@@ -66,6 +89,11 @@ export class AdmCtrlBarTab {
 export class AdmCtrlBarComponent implements AfterContentChecked {
 
   @ContentChildren(AdmCtrlBarTab) tabs:QueryList<AdmCtrlBarTab>;
+
+  /**
+   * A tab change event fired right before the tab selection happens. See AdmCtrlBarTabChangeEvent for payload details
+   */
+  @Output() tabChange = new EventEmitter<AdmCtrlBarTabChangeEvent>();
 
   /**
    * An identifier of an initially selected (active) tab. Use the "select" method to switch a tab programmatically.
@@ -84,8 +112,13 @@ export class AdmCtrlBarComponent implements AfterContentChecked {
     if (selectedTab && !selectedTab.disabled && this.activeId !== selectedTab.id) {
       let defaultPrevented = false;
 
-      // this.tabChange.emit(
-      //   {activeId: this.activeId, nextId: selectedTab.id, preventDefault: () => { defaultPrevented = true; }});
+      this.tabChange.emit({
+        activeId: this.activeId,
+        nextId: selectedTab.id,
+        preventDefault: () => {
+          defaultPrevented = true;
+        }
+      });
 
       if (!defaultPrevented) {
         this.activeId = selectedTab.id;
