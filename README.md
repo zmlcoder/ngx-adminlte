@@ -98,5 +98,46 @@ export class AdmSideBarTreeItem {
 ```
 ![](https://github.com/zmlcoder/angular2-adminlte/blob/master/screenshots/sidebar.gif)
 
+### [&lt;adm-ctrlbar&gt;](https://github.com/zmlcoder/angular2-adminlte/blob/master/src/app/ctrlbar/adm-ctrlbar.component.ts#L89)
+
+The right side control bar of framework, which is consist of multi tabs. It could easily custom the content from external template with following directives.
+[Usage](https://github.com/zmlcoder/angular2-adminlte/blob/master/src/app/app.component.ts)
+
+### [&lt;adm-ctrlbar-tab&gt;](https://github.com/zmlcoder/angular2-adminlte/blob/master/src/app/ctrlbar/adm-ctrlbar.component.ts#L44)
+The child component of <adm-ctrlbar> to show one tab.
+
+### [adm-ctrlbar-tab-title](https://github.com/zmlcoder/angular2-adminlte/blob/master/src/app/ctrlbar/adm-ctrlbar.component.ts#L26)
+The child directive of <adm-ctrlbar-tab> to indicate the title template.
+
+### [adm-ctrlbar-tab-content](https://github.com/zmlcoder/angular2-adminlte/blob/master/src/app/ctrlbar/adm-ctrlbar.component.ts#L35)
+The child directive of <adm-ctrlbar-tab> to indicate the content template.
+
+### [&lt;adm-ctrlbar-item&gt;](https://github.com/zmlcoder/angular2-adminlte/blob/master/src/app/ctrlbar/adm-ctrlbar-item.component.ts)
+The build in control bar items. For now, there are four types item: 
+- [AdmCtrlBarHeaderItem](https://github.com/zmlcoder/angular2-adminlte/blob/master/src/app/shared/models/AdmCtrlBarHeaderItem.ts)
+- [AdmCtrlBarInfoBoxItem](https://github.com/zmlcoder/angular2-adminlte/blob/master/src/app/shared/models/AdmCtrlBarInfoBoxItem.ts)
+- [AdmCtrlBarCheckBoxItem](https://github.com/zmlcoder/angular2-adminlte/blob/master/src/app/shared/models/AdmCtrlBarCheckBoxItem.ts)
+- [AdmCtrlBarProgressItem](https://github.com/zmlcoder/angular2-adminlte/blob/master/src/app/shared/models/AdmCtrlBarProgressItem.ts)
+
+```bash
+
+<adm-ctrlbar [activeId]="'homeTab'">
+  
+  <adm-ctrlbar-tab [id]="'homeTab'">
+  
+    <template adm-ctrlbar-tab-title><i class="fa fa-home"></i></template>
+    
+    <template adm-ctrlbar-tab-content>
+      <adm-ctrlbar-item *ngFor="let item of ctrlBarItems" [model]="item"></adm-ctrlbar-item>
+    </template>
+    
+  </adm-ctrlbar-tab>
+  
+</adm-ctrlbar>
+
+```
+
+![](https://github.com/zmlcoder/angular2-adminlte/blob/master/screenshots/ctrlbar.gif)
+
 ## License
  [MIT](/LICENSE)

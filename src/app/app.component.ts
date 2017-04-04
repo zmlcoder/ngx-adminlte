@@ -132,15 +132,24 @@ export class AppComponent implements OnInit {
     return [headerItem, dashboardGroup, layoutsItem, widgetsItem, mailBoxItem, multilevel];
   }
 
+  /**
+   *  Create right bar tabs model.
+   * @returns {AdmCtrlBarTab[]}
+   */
   private createCtrlBarTabs():AdmCtrlBarTab[] {
     return [this.createOptionsTab(), this.createHomeTab(), this.createSettingsTab()];
   }
 
+  /**
+   *  Create options tab model.
+   * @returns {AdmCtrlBarTab}
+   */
   private createOptionsTab():AdmCtrlBarTab {
     let optionsTab = new AdmCtrlBarTab();
     optionsTab.id = 'optionsTab';
     optionsTab.icon = 'fa fa-wrench';
 
+    //  Layout Options Items
     let layoutOptionsHeaderItem = new AdmCtrlBarHeaderItem();
     layoutOptionsHeaderItem.title = 'Layout Options';
     optionsTab.items.push(layoutOptionsHeaderItem);
@@ -186,12 +195,17 @@ export class AppComponent implements OnInit {
     return optionsTab;
   }
 
+  /**
+   *  Create home tab model.
+   * @returns {AdmCtrlBarTab}
+   */
   private createHomeTab():AdmCtrlBarTab {
 
     let homeTab = new AdmCtrlBarTab();
     homeTab.id = 'homeTab';
     homeTab.icon = 'fa fa-home';
 
+    //  Recent Activity Items
     let recentActivityHeaderItem = new AdmCtrlBarHeaderItem();
     recentActivityHeaderItem.title = 'Recent Activity';
     homeTab.items.push(recentActivityHeaderItem);
@@ -224,6 +238,7 @@ export class AppComponent implements OnInit {
     greenInfoItem.clickFn = item=>console.info(item.title);
     homeTab.items.push(greenInfoItem);
 
+    //  Tasks Progress Items
     let tasksProgressHeaderItem = new AdmCtrlBarHeaderItem();
     tasksProgressHeaderItem.title = 'Tasks Progress';
     homeTab.items.push(tasksProgressHeaderItem);
@@ -263,12 +278,17 @@ export class AppComponent implements OnInit {
     return homeTab;
   }
 
+  /**
+   *  Create settings tab model.
+   * @returns {AdmCtrlBarTab}
+   */
   private createSettingsTab():AdmCtrlBarTab {
 
     let settingsTab = new AdmCtrlBarTab();
     settingsTab.id = 'settingsTab';
     settingsTab.icon = 'fa fa-gears';
 
+    // General Settings Items
     let generalSettingsHeaderItem = new AdmCtrlBarHeaderItem();
     generalSettingsHeaderItem.title = 'General Settings';
     settingsTab.items.push(generalSettingsHeaderItem);
@@ -294,6 +314,7 @@ export class AppComponent implements OnInit {
     exposeUserNameItem.clickFn = item => console.info(item.title);
     settingsTab.items.push(exposeUserNameItem);
 
+    // Chat Settings Items
     let chatSettingsHeaderItem = new AdmCtrlBarHeaderItem();
     chatSettingsHeaderItem.title = 'Chat Settings';
     settingsTab.items.push(chatSettingsHeaderItem);

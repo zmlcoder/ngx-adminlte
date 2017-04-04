@@ -8,10 +8,13 @@ export class AdmCtrlBarInfoBoxItem extends AdmCtrlBarItem {
   // type value.
   static readonly TYPE:string = 'infobox';
 
+  // the icon class.
   icon:string;
 
+  // the title text.
   title:string;
 
+  // the subtitle text.
   description:string;
 
   // clicked callback.
