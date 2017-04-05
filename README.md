@@ -26,10 +26,10 @@
   <adm-ctrlbar [activeId]="'homeTab'">
   
     <adm-ctrlbar-tab *ngFor="let tab of ctrlBarTabs" [id]="tab.id">
-      <template adm-ctrlbar-tab-title><i [ngClass]="tab.icon">{{tab.title}}</i></template>
-      <template adm-ctrlbar-tab-content>
+      <ng-template adm-ctrlbar-tab-title><i [ngClass]="tab.icon">{{tab.title}}</i></ng-template>
+      <ng-template adm-ctrlbar-tab-content>
         <adm-ctrlbar-item *ngFor="let item of tab.items" [model]="item"></adm-ctrlbar-item>
-      </template>
+      </ng-template>
     </adm-ctrlbar-tab>
  
   </adm-ctrlbar>
@@ -132,11 +132,11 @@ The built in control bar items. For now, there are four types item:
   
   <adm-ctrlbar-tab [id]="'homeTab'">
   
-    <template adm-ctrlbar-tab-title><i class="fa fa-home"></i></template>
+    <ng-template adm-ctrlbar-tab-title><i class="fa fa-home"></i></ng-template>
     
-    <template adm-ctrlbar-tab-content>
+    <ng-template adm-ctrlbar-tab-content>
       <adm-ctrlbar-item *ngFor="let item of ctrlBarItems" [model]="item"></adm-ctrlbar-item>
-    </template>
+    </ng-template>
     
   </adm-ctrlbar-tab>
   
