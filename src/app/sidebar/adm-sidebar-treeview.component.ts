@@ -2,8 +2,9 @@
  * Created by zml on 2016/4/17.
  */
 
-import {Component, Input, trigger, state, animate, transition, style} from "@angular/core";
+import {Component, Input} from "@angular/core";
 import {AdmSideBarTreeItem} from "../shared/models/AdmSideBarTreeItem";
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'adm-sidebar-treeview',

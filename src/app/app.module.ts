@@ -2,6 +2,7 @@ import {NgModule}      from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
 import {Ng2BootstrapModule} from 'ng2-bootstrap';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 // App is our top level component
 import {AppComponent}  from './app.component';
@@ -66,6 +67,7 @@ const APP_PROVIDERS = [
   imports: [ // import Angular's modules
     BrowserModule,
     RouterModule,
+    BrowserAnimationsModule,
     Ng2BootstrapModule.forRoot()
   ],
   exports: [ // exported components and directives

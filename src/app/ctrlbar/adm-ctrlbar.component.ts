@@ -23,7 +23,7 @@ let nextId = 0;
 /**
  * This directive should be used to wrap tab titles that need to contain HTML markup or other directives.
  */
-@Directive({selector: 'template[adm-ctrlbar-tab-title]'})
+@Directive({selector: 'ng-template[adm-ctrlbar-tab-title]'})
 export class AdmCtrlBarTabTitleDirective {
   constructor(public templateRef:TemplateRef<any>) {
   }
@@ -32,7 +32,7 @@ export class AdmCtrlBarTabTitleDirective {
 /**
  * This directive must be used to wrap content to be displayed in a tab.
  */
-@Directive({selector: 'template[adm-ctrlbar-tab-content]'})
+@Directive({selector: 'ng-template[adm-ctrlbar-tab-content]'})
 export class AdmCtrlBarTabContentDirective {
   constructor(public templateRef:TemplateRef<any>) {
   }

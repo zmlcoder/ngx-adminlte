@@ -11,7 +11,7 @@
   </ng-container>
 </ul>
 
-<template #itemTemplate let-item="item" let-itemClass="itemClass">
+<ng-template #itemTemplate let-item="item" let-itemClass="itemClass">
 
   <li [ngClass]="{active:item.isActive}" class="{{itemClass}}" (click)="onClick($event,item)">
 
@@ -35,4 +35,4 @@
 
   </li>
 
-</template>
+</ng-template>

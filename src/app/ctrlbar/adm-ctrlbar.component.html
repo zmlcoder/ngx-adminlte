@@ -7,18 +7,18 @@
     <li *ngFor="let tab of tabs" [class.active]="tab.id === activeId" [class.disabled]="tab.disabled">
       <a [id]="tab.id" href (click)="!!select(tab.id)">
         {{tab.title}}
-        <template [ngTemplateOutlet]="tab.titleTpl?.templateRef"></template>
+        <ng-template [ngTemplateOutlet]="tab.titleTpl?.templateRef"></ng-template>
       </a>
     </li>
   </ul>
 
   <!-- Tab panes -->
   <div class="tab-content">
-    <template ngFor let-tab [ngForOf]="tabs">
+    <ng-template ngFor let-tab [ngForOf]="tabs">
       <div class="tab-pane active" *ngIf="tab.id === activeId">
-        <template [ngTemplateOutlet]="tab.contentTpl?.templateRef"></template>
+        <ng-template [ngTemplateOutlet]="tab.contentTpl?.templateRef"></ng-template>
       </div>
-    </template>
+    </ng-template>
   </div>
 
 </aside>
