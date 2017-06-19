@@ -1,8 +1,8 @@
 import {NgModule}      from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
-import {Ng2BootstrapModule} from 'ng2-bootstrap';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {FormsModule}   from '@angular/forms';
 
 // App is our top level component
 import {AppComponent}  from './app.component';
@@ -26,6 +26,11 @@ import {AdmHeaderUserComponent} from "./header/adm-header-user.component";
 import {AdmSideBarSearchComponent} from "./sidebar/adm-sidebar-search.component";
 import {AdmSideBarTreeViewComponent} from "./sidebar/adm-sidebar-treeview.component";
 import {AdmCtrlBarItemComponent} from "./ctrlbar/adm-ctrlbar-item.component";
+import {
+  AdmDropDownDirective,
+  AdmDropDownMenuDirective,
+  AdmDropDownToggleDirective
+} from "./shared/directives/adm-dropdown.directive";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -62,13 +67,16 @@ const APP_PROVIDERS = [
 
     AdmSidebarSwitchDirective,
     RemoveHostDirective,
+    AdmDropDownDirective,
+    AdmDropDownMenuDirective,
+    AdmDropDownToggleDirective
 
   ],
   imports: [ // import Angular's modules
     BrowserModule,
     RouterModule,
     BrowserAnimationsModule,
-    Ng2BootstrapModule.forRoot()
+    FormsModule
   ],
   exports: [ // exported components and directives
     AppComponent,
