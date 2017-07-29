@@ -1,0 +1,28 @@
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark "
+       [ngClass]="{'': !statusService.isCtrlBarOpen(), 'control-sidebar-open':statusService.isCtrlBarOpen()}"
+>
+  <!-- Create the tabs -->
+  <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+    <li *ngFor="let tab of tabs" [class.active]="tab.id === activeId" [class.disabled]="tab.disabled">
+      <a [id]="tab.id" href (click)="!!select(tab.id)">
+        {{tab.title}}
+        <ng-template [ngTemplateOutlet]="tab.titleTpl?.templateRef"></ng-template>
+      </a>
+    </li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <ng-template ngFor let-tab [ngForOf]="tabs">
+      <div class="tab-pane active" *ngIf="tab.id === activeId">
+        <ng-template [ngTemplateOutlet]="tab.contentTpl?.templateRef"></ng-template>
+      </div>
+    </ng-template>
+  </div>
+
+</aside>
+
+<!-- Add the sidebar's background. This div must be placed
+     immediately after the control sidebar -->
+<div class="control-sidebar-bg" style="position: fixed; height: auto;"></div>

@@ -1,0 +1,10 @@
+<div class="hold-transition skin-blue sidebar-mini"
+     [ngClass]="{'sidebar-collapse': statusService.isSidebarCollapsed(), 'sidebar-open':!statusService.isSidebarCollapsed()}">
+
+  <div class="wrapper">
+
+    <ng-content></ng-content>
+
+  </div>
+
+</div>

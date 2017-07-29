@@ -1,0 +1,38 @@
+<ul class="sidebar-menu">
+  <ng-container *ngFor="let item of items">
+
+    <!--header item-->
+    <li *ngIf="item.type === 'header'" class="header">{{item.text}}</li>
+
+    <!--treeview item-->
+    <ng-container *ngIf="item.type === 'treeview'" [ngTemplateOutlet]="itemTemplate"
+                  [ngOutletContext]="{item:item, itemClass:'treeview'}"></ng-container>
+
+  </ng-container>
+</ul>
+
+<ng-template #itemTemplate let-item="item" let-itemClass="itemClass">
+
+  <li [ngClass]="{active:item.isActive}" class="{{itemClass}}" (click)="onClick($event,item)">
+
+    <a>
+      <i [ngClass]="getLeftIcon(item)"></i>
+      <span>{{item.text}}</span>
+      <span class="pull-right-container">
+        <small *ngFor="let label of item.labels" [ngClass]="label.labelClass">{{label.labelText}}</small>
+        <i [ngClass]="getRightIcon(item)"></i>
+      </span>
+    </a>
+
+    <ul *ngIf="item.children" class="treeview-menu"
+        [@treeItemAnimation]="item.isActive ? 'slideDown' : 'slideUp'"
+        style="display: block;">
+
+      <!-- Recursive all children! -->
+      <ng-container *ngFor="let child of item.children" [ngTemplateOutlet]="itemTemplate"
+                    [ngOutletContext]="{item:child}"></ng-container>
+    </ul>
+
+  </li>
+
+</ng-template>
