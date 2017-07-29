@@ -83,7 +83,7 @@ More information please check out the [**ngx-adminlte-example**](https://github.
 ### [&lt;adm-sidebar-treeview&gt;](https://github.com/zmlcoder/ngx-adminlte/blob/master/src/sidebar/adm-sidebar-treeview.component.ts)
 
 Support multilevel items and multi labels.
-[Usage](https://github.com/zmlcoder/ngx-adminlte-example/blob/master/src/app.component.ts#L46)
+[Usage](https://github.com/zmlcoder/ngx-adminlte-example/blob/master/src/app/app.component.ts#L46)
 
 ```typescript
 /**
@@ -127,7 +127,7 @@ export class AdmSideBarTreeItem {
 ### [&lt;adm-ctrlbar&gt;](https://github.com/zmlcoder/ngx-adminlte/blob/master/src/ctrlbar/adm-ctrlbar.component.ts#L89)
 
 The right side control bar of framework, which is consist of multi tabs. It could easily custom the content from external template with following directives.
-[Usage](https://github.com/zmlcoder/ngx-adminlte-example/blob/master/src/app.component.ts#L139)
+[Usage](https://github.com/zmlcoder/ngx-adminlte-example/blob/master/src/app/app.component.ts#L139)
 
 ### [&lt;adm-ctrlbar-tab&gt;](https://github.com/zmlcoder/ngx-adminlte/blob/master/src/ctrlbar/adm-ctrlbar.component.ts#L44)
 The child component of &lt;adm-ctrlbar&gt; to show one tab.
