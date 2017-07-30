@@ -46,12 +46,19 @@ with NPM 3 or higher.
 ## Usage
 
 Install this library, run:
-
 ```bash
 $ npm install ngx-adminlte --save
 ```
-Import **'NgxAdminLteModule'** into your 'AppModule'
 
+Import all necessary css libraries:
+```typescript
+@import "~font-awesome/css/font-awesome.min.css";
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~admin-lte/dist/css/AdminLTE.min.css";
+@import "~admin-lte/dist/css/skins/skin-blue.min.css";
+```
+
+Import **'NgxAdminLteModule'** into your 'AppModule'
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';

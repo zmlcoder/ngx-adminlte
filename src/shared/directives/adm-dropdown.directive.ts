@@ -7,6 +7,7 @@ import {Directive, ElementRef} from "@angular/core";
 @Directive({
   selector: '[adm-dropdown]',
   host: {
+    'class': 'dropdown',
     '[class.open]': 'isOpen',
     '(document:click)': 'closeFromOutsideClick($event)'
   }

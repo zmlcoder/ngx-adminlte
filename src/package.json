@@ -1,6 +1,6 @@
 {
   "name": "ngx-adminlte",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/zmlcoder/ngx-adminlte"
@@ -20,7 +20,7 @@
   },
   "module": "ngx-adminlte.js",
   "typings": "ngx-adminlte.d.ts",
-  "peerDependencies": {
+  "dependencies": {
     "@angular/animations": "^4.0.0",
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
@@ -31,11 +31,11 @@
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
     "@types/lodash": "^4.14.55",
-    "admin-lte": "2.3.11",
-    "bootstrap": "3.3.7",
+    "admin-lte": "^2.3.11",
+    "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
-    "font-awesome": "4.6.3",
-    "font-awesome-webpack": "0.0.4",
+    "font-awesome": "^4.6.3",
+    "font-awesome-webpack": "^0.0.4",
     "lodash": "^4.17.4",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4"
