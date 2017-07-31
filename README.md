@@ -3,37 +3,38 @@
 ```bash
 
 <adm-framework>
- 
+
   <!-- Top header -->
-  <adm-header>
-    <adm-header-user [user]="loginUser"></adm-header-user>
+  <adm-header [model]="headerModel">
+    <adm-header-user [model]="headerUserModel"></adm-header-user>
     <adm-header-ctrlbar></adm-header-ctrlbar>
   </adm-header>
- 
+
   <!-- Left side column. contains the logo and sidebar -->
   <adm-sidebar>
-    <adm-sidebar-user [user]="loginUser"></adm-sidebar-user>
+    <adm-sidebar-user [model]="sideBarUserModel"></adm-sidebar-user>
     <adm-sidebar-search></adm-sidebar-search>
     <adm-sidebar-treeview [items]="treeViewItems"></adm-sidebar-treeview>
   </adm-sidebar>
- 
- <!-- content-wrapper -->
-  <adm-content></adm-content>
- 
-  <adm-footer></adm-footer>
- 
+
+  <!-- The place to inject your components. -->
+  <adm-content>
+    To be continue...
+  </adm-content>
+
+  <!-- Footer. -->
+  <adm-footer [model]="footerModel"></adm-footer>
+
   <!--right side bar-->
   <adm-ctrlbar [activeId]="'homeTab'">
-  
     <adm-ctrlbar-tab *ngFor="let tab of ctrlBarTabs" [id]="tab.id">
       <ng-template adm-ctrlbar-tab-title><i [ngClass]="tab.icon">{{tab.title}}</i></ng-template>
       <ng-template adm-ctrlbar-tab-content>
         <adm-ctrlbar-item *ngFor="let item of tab.items" [model]="item"></adm-ctrlbar-item>
       </ng-template>
     </adm-ctrlbar-tab>
- 
   </adm-ctrlbar>
- 
+
 </adm-framework>
 
 ```
