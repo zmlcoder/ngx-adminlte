@@ -1,14 +1,14 @@
-import {Component, ViewEncapsulation, ContentChildren} from "@angular/core";
+import {Component, ViewEncapsulation, Input} from "@angular/core";
+import {AdmHeaderModel} from "../shared/models/AdmHeaderModel";
 
 @Component({
   selector: 'adm-header',
-  // providers: [],
-  // viewProviders: [],
   templateUrl: './adm-header.component.html',
   encapsulation: ViewEncapsulation.None,
-  // pipes: []
 })
 export class AdmHeaderComponent {
-  constructor() {
-  }
+
+  @Input('model')
+  private model:AdmHeaderModel;
+  
 }

@@ -2,41 +2,37 @@
 <li adm-dropdown class="user user-menu">
 
   <a adm-dropdown-toggle href="#">
-    <img src="{{user.imgUrl}}" class="user-image" alt="User Image">
-    <span class="hidden-xs">{{user.name}}</span>
+    <img src="{{model.imgUrl}}" class="user-image" alt="User Image">
+    <span class="hidden-xs">{{model.name}}</span>
   </a>
   <ul adm-dropdown-menu>
     <!-- User image -->
     <li class="user-header">
-      <img src="{{user.imgUrl}}" class="img-circle" alt="User Image">
-
-      <p>
-        ZMLCODER - Web Developer
-        <small>Member since Nov. 2012</small>
-      </p>
+      <img src="{{model.imgUrl}}" class="img-circle" alt="User Image">
+      <p [innerHTML]="model.description"></p>
     </li>
     <!-- Menu Body -->
-    <li class="user-body">
-      <div class="row">
-        <div class="col-xs-4 text-center">
-          <a href="#">Followers</a>
-        </div>
-        <div class="col-xs-4 text-center">
-          <a href="#">Sales</a>
-        </div>
-        <div class="col-xs-4 text-center">
-          <a href="#">Friends</a>
-        </div>
-      </div>
-      <!-- /.row -->
-    </li>
+    <!--<li class="user-body">-->
+    <!--<div class="row">-->
+    <!--<div class="col-xs-4 text-center">-->
+    <!--<a href="#">Followers</a>-->
+    <!--</div>-->
+    <!--<div class="col-xs-4 text-center">-->
+    <!--<a href="#">Sales</a>-->
+    <!--</div>-->
+    <!--<div class="col-xs-4 text-center">-->
+    <!--<a href="#">Friends</a>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash; /.row &ndash;&gt;-->
+    <!--</li>-->
     <!-- Menu Footer-->
-    <li class="user-footer">
-      <div class="pull-left">
-        <a href="#" class="btn btn-default btn-flat">Profile</a>
+    <li class="user-footer" *ngIf="model.leftButton || model.rightButton">
+      <div class="pull-left" *ngIf="model.leftButton">
+        <a (click)="model.leftButton.clickFn()" class="btn btn-default btn-flat">{{model.leftButton.text}}</a>
       </div>
-      <div class="pull-right">
-        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+      <div class="pull-right" *ngIf="model.rightButton">
+        <a (click)="model.rightButton.clickFn()" class="btn btn-default btn-flat">{{model.rightButton.text}}</a>
       </div>
     </li>
   </ul>

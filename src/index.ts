@@ -21,13 +21,15 @@ export * from "./shared/services/adm-status.service";
 export * from "./shared/directives/adm-sidebar-switch.directive";
 export * from "./shared/directives/remove-host.directive";
 export * from "./shared/directives/adm-dropdown.directive";
-export * from "./shared/models/User";
+export * from "./shared/models/AdmSideBarUserModel";
 export * from "./shared/models/AdmSideBarTreeItem";
 export * from "./shared/models/AdmCtrlBarProgressItem";
 export * from "./shared/models/AdmCtrlBarHeaderItem";
 export * from "./shared/models/AdmCtrlBarInfoBoxItem";
 export * from "./shared/models/AdmCtrlBarCheckBoxItem";
 export * from "./shared/models/AdmCtrlBarTab";
+export * from "./shared/models/AdmHeaderModel";
+export * from "./shared/models/AdmFooterModel";
 
 // sidebar
 export * from "./sidebar/adm-sidebar.component";

@@ -3,12 +3,12 @@
  */
 
 import {Component, Input} from "@angular/core";
-import {User} from "../shared/models/User";
+import {AdmSideBarUserModel} from "../shared/models/AdmSideBarUserModel";
 @Component({
   selector: 'adm-sidebar-user',
   templateUrl: './adm-sidebar-user.component.html',
 })
 export class AdmSideBarUserComponent {
-  @Input('user')
-  user:User;
+  @Input('model')
+  model:AdmSideBarUserModel;
 }

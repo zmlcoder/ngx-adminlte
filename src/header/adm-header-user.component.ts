@@ -1,5 +1,5 @@
 import {Component, ViewEncapsulation, ElementRef, Input} from "@angular/core";
-import {User} from "../shared/models/User";
+import {AdmHeaderUserModel} from "../shared/models/AdmHeaderModel";
 
 @Component({
   selector: 'adm-header-user',
@@ -8,8 +8,8 @@ import {User} from "../shared/models/User";
 })
 export class AdmHeaderUserComponent {
 
-  @Input('user')
-  private user:User;
+  @Input('model')
+  model:AdmHeaderUserModel;
 
   constructor(private elementRef:ElementRef) {
   }
